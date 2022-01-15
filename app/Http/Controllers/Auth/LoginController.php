@@ -72,7 +72,7 @@ class LoginController extends Controller
 
     public function index(){
         $title = "login To Aya Pharamcy";
-        $logo = Setting::query()->where('name','logo')->first()->val;
+        $logo = @Setting::query()->where('name','logo')->first()->val;
         return view('auth.login',compact(
             'title','logo'
         ));

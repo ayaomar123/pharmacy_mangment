@@ -29,7 +29,8 @@
 			<div class="row align-items-center ">
 				<div class="col-md-12">
 					<div class="card-body">
-                        <img src="{{asset('storage')}}/{{ $logo }}" width="200" alt="" class="img-fluid mb-4">
+					<!-- {{asset('img/logo1.png')}} -->
+                        <img src="@if($logo){{asset('storage')}}/{{ $logo }}@else{{asset('img/logo1.png')}} @endif" width="200" alt="" class="img-fluid mb-4">
 						<h4 class="mb-3 f-w-400">Signin</h4>
 						<hr>
                         <form method="POST" action="{{ route('login') }}">
