@@ -15,10 +15,10 @@
       <link rel="shortcut icon" type="image/x-icon" href="@if(!empty(AppSettings::get('logo'))) {{asset('storage/'.AppSettings::get('favicon'))}} @else{{asset('img/fav.png')}} @endif">
 
     <!-- prism css -->
-    <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/plugins/prism-coy.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/assets/css/plugins/prism-coy.css') }}">
     <!-- vendor css -->
-    <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/pcoded-horizontal.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/assets/css/pcoded-horizontal.min.css') }}">
 
      <!-- Scripts -->
      {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
@@ -84,16 +84,16 @@
     {{-- </div> --}}
 
     <!-- Required Js -->
-    <script src="{{ asset('jambasangsang/assets/js/vendor-all.min.js') }}"></script>
-    <script src="{{ asset('jambasangsang/assets/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('jambasangsang/assets/js/pcoded.min.js') }}"></script>
+    <script src="{{ asset('assetss/assets/js/vendor-all.min.js') }}"></script>
+    <script src="{{ asset('assetss/assets/js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assetss/assets/js/pcoded.min.js') }}"></script>
 
 
     <!-- prism Js -->
-    <script src="{{ asset('jambasangsang/assets/js/plugins/prism.js') }}"></script>
+    <script src="{{ asset('assetss/assets/js/plugins/prism.js') }}"></script>
 
 
-    <script src="{{ asset('jambasangsang/assets/js/horizontal-menu.js') }}"></script>
+    <script src="{{ asset('assetss/assets/js/horizontal-menu.js') }}"></script>
     <script>
         (function() {
             if ($('#layout-sidenav').hasClass('sidenav-horizontal') || window.layoutHelpers.isSmallScreen()) {
@@ -158,7 +158,7 @@
 	});
     </script>
 
-    <script src="{{ asset('jambasangsang/assets/js/analytics.js') }}"></script>
+    <script src="{{ asset('assetss/assets/js/analytics.js') }}"></script>
 
     @stack('page-js')
     @yield('script')

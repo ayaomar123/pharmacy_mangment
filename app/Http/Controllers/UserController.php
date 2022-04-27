@@ -70,17 +70,17 @@ class UserController extends Controller
             'email'=>'required|email',
             'avatar'=>'file|image|mimes:jpg,jpeg,gif,png',
         ]);
-        if($request->hasFile('avatar')){
+        /* if($request->hasFile('avatar')){
             $imageName = time().'.'.$request->avatar->extension();
             $request->avatar->move(public_path('storage/users'), $imageName);
         }else{
             $imageName = auth()->user()->avatar;
-        }
+        } */
             try {
                 auth()->user()->update([
                     'name'=>$request->name,
                     'email'=>$request->email,
-                    'avatar'=>$imageName,
+                    'avatar'=>$request->avatar,
                 ]);
                 $notification =array(
                     'message'=>"User profile has been updated !!!",

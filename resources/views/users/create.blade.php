@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" name="name" class="form-control edit_name" placeholder="John Doe">
+                <input type="text" name="name" class="form-control edit_name" placeholder="name">
             </div>
         </div>
         <div class="col-12">

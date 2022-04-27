@@ -7,6 +7,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
+
 
 class User extends Authenticatable
 {
@@ -54,4 +56,29 @@ class User extends Authenticatable
     }
 
 
+    public function setImageAttribute($image)
+    {
+        if (!$image) {
+            return;
+        }
+        $this->deleteImage();
+        if (gettype($image) != 'string') {
+            $image->store('user');
+            $this->attributes['image'] = $image->hashName();
+        } else {
+            $this->attributes['image'] = $image;
+        }
+    }
+
+    public function getImageAttribute($image)
+    {
+        return $image ? Storage::url('user/' . $image) : null;
+    }
+
+    public function deleteImage()
+    {
+        if (isset($this->attributes['image']) && $this->attributes['image']) {
+            Storage::delete('user/' . $this->attributes['image']);
+        }
+    }
 }

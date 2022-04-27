@@ -2,7 +2,7 @@
 
 @push('page-css')
 	<!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{asset('jambasangsang/assets/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assetss/assets/select2/css/select2.min.css')}}">
 @endpush
 
 
@@ -96,7 +96,7 @@
                                 <div class="col-md-8">
 								<div class="row">
 									<p class="col-sm-2 text-muted  mb-0 mb-sm-3">Name</p>
-									<p class="col-sm-10">{{auth()->user()->name}}</p>
+									<p class="col-sm-10">{{auth()->user()->avatar}}</p>
 								</div>
 
 								<div class="row">

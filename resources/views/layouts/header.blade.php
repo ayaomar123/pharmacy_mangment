@@ -187,8 +187,8 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-{{--                                <img src="{{ asset('jambasangsang/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">--}}
-                                <img src="{{ asset('storage').'/'.auth()->user()->avatar ?? asset('jambasangsang/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">
+{{--                                <img src="{{ asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">--}}
+                                <img src="{{ asset('storage').'/'.auth()->user()->avatar ?? asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">
                                 <span> {{ Auth::user()->name }}</span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();" class="dud-logout" title="Logout">
