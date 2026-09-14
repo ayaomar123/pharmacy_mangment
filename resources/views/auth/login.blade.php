@@ -54,14 +54,13 @@
                             @enderror
 						</div>
 						<div class="custom-control custom-checkbox text-left mb-4 mt-2">
-							<input type="checkbox" class="custom-control-input" id="customCheck1">
+							<input type="checkbox" name="remember" class="custom-control-input" id="customCheck1" {{ old('remember') ? 'checked' : '' }}>
 							<label class="custom-control-label" for="customCheck1">Save credentials.</label>
 						</div>
 						<button type="submit" class="btn btn-block btn-primary mb-4">Signin</button>
                     </form>
 						<hr>
-						<p class="mb-2 text-muted">Forgot password? <a href="auth-reset-password.html" class="f-w-400">Reset</a></p>
-						<p class="mb-0 text-muted">Don’t have an account? <a href="{{ route('register') }}" class="f-w-400">Signup</a></p>
+						<p class="mb-0 text-muted">Forgot password? <a href="{{ route('password.request') }}" class="f-w-400">Reset</a></p>
 					</div>
 				</div>
 			</div>

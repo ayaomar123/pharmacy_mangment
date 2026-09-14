@@ -1,39 +1,10 @@
 <?php
 
-// namespace App\Http\Controllers\Auth;
-
-// use App\Http\Controllers\Controller;
-// use Illuminate\Http\Request;
-
-// class LoginController extends Controller
-// {
-//     public function index(){
-//         $title = "login";
-//         return view('auth.login',compact(
-//             'title',
-//         ));
-//     }
-
-//     public function login(Request $request){
-//         $this->validate($request ,[
-//             'email'=>'required|email',
-//             'password'=>'required',
-//         ]);
-//        $authenticate = auth()->attempt($request->only('email','password'));
-//        if (!$authenticate){
-//            return back()->with('login_error',"Invalid user credentials");
-//        }
-
-//        return redirect()->route('dashboard');
-//     }
-// }
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 use QCod\Settings\Setting\Setting;
 
 class LoginController extends Controller
@@ -68,26 +39,27 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
-
-    public function index(){
+    /**
+     * Show the login form.
+     *
+     * The login route points here instead of showLoginForm() so the view can
+     * render the logo configured in the application settings.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
         $title = "login To Aya Pharamcy";
-        $logo = @Setting::query()->where('name','logo')->first()->val;
-        return view('auth.login',compact(
-            'title','logo'
-        ));
+        $logo = Setting::query()->where('name', 'logo')->value('val');
+
+        return view('auth.login', compact('title', 'logo'));
     }
 
-    public function login(Request $request){
-        $this->validate($request ,[
-            'email'=>'required|email',
-            'password'=>'required',
-        ]);
-       $authenticate = auth()->attempt($request->only('email','password'));
-       if (!$authenticate){
-           return back()->with('login_error',"Invalid user credentials");
-       }
-
-       return redirect()->route('dashboard');
-    }
+    /*
+    | login() is intentionally not overridden. The AuthenticatesUsers trait
+    | already validates the credentials, applies the ThrottlesLogins lockout,
+    | regenerates the session id after a successful attempt (which prevents
+    | session fixation) and returns the failure as a validation error on the
+    | email field, which the login view renders.
+    */
 }

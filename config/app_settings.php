@@ -83,8 +83,10 @@ return [
     // Setting page url, will be used for get and post request
     'url' => 'settings',
 
-    // Any middleware you want to run on above route
-    'middleware' => [],
+    // Any middleware you want to run on above route.
+    // The package registers both GET and POST on the url above, so without
+    // these the settings form would be writable by unauthenticated visitors.
+    'middleware' => ['web', 'auth', 'permission:view-settings'],
 
     // View settings
     'setting_page_view' => 'settings.settings',
