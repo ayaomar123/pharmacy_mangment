@@ -37,7 +37,11 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            // Written straight into public/storage rather than through the
+            // storage:link symlink: the controllers already move uploads there
+            // with public_path('storage/...'), and shared hosting (InfinityFree)
+            // does not allow creating the symlink.
+            'root' => public_path('storage'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
