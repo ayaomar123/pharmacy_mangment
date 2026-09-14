@@ -1,31 +1,31 @@
 @extends('layouts.app')
 
 @push('page-css')
-	<!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{asset('jambasangsang/assets/select2/css/select2.min.css')}}">
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{{ asset('assetss/assets/select2/css/select2.min.css') }}">
 @endpush
 
 
 @section('content')
-<div class="page-header">
-    <div class="page-block">
-        <div class="row align-items-center">
-            <div class="col-md-9 col-auto">
-                <div class="page-header-title">
-                    <h3 class="m-b-10">Add Sales</h3>
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-9 col-auto">
+                    <div class="page-header-title">
+                        <h3 class="m-b-10">Add Sales</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-3 col">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                            Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active">Add Sales</li>
-                </ul>
+                <div class="col-sm-3 col">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
+                                Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">Add Sales</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <div class="row">
         <div class="col-md-8">
 
@@ -40,14 +40,16 @@
                                 <i class="feather icon-more-horizontal"></i>
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                <li class="dropdown-item full-card"><a href="#!"><span><i
+                                                class="feather icon-maximize"></i>
                                             maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
                                             Restore</span></a>
                                 </li>
                                 <li class="dropdown-item minimize-card"><a href="#!"><span><i
                                                 class="feather icon-minus"></i> collapse</span><span style="display:none"><i
                                                 class="feather icon-plus"></i> expand</span></a></li>
-                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                <li class="dropdown-item reload-card"><a href="#!"><i
+                                            class="feather icon-refresh-cw"></i>
                                         reload</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
                                         remove</a></li>
@@ -80,15 +82,15 @@
                                             <td>
                                                 <div class="actions">
                                                     @can('update-sales')
-                                                    @if ($sale->product->purchase->quantity != 0)
-                                                        <a data-id="{{ $sale->id }}"
-                                                            data-product="{{ $sale->product_id }}"
-                                                            data-quantity="{{ $sale->quantity }}"
-                                                            class="btn btn-sm btn-info editbtn" href="javascript:void(0);">
-                                                            <i class="fe fe-pencil"></i> Edit
-                                                        </a>
+                                                        @if ($sale->product->purchase->quantity != 0)
+                                                            <a data-id="{{ $sale->id }}"
+                                                                data-product="{{ $sale->product_id }}"
+                                                                data-quantity="{{ $sale->quantity }}"
+                                                                class="btn btn-sm btn-info editbtn" href="javascript:void(0);">
+                                                                <i class="fe fe-pencil"></i> Edit
+                                                            </a>
                                                         @else
-                                                        <label class="badge badge-danger"> Out of Stock</label>
+                                                            <label class="badge badge-danger"> Out of Stock</label>
                                                         @endif
                                                     @endcan
                                                     @can('destroy-sales')
@@ -111,34 +113,32 @@
 
         </div>
         @can('create-sales')
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Add Sale</h5>
-                    <div class="card-header-right">
-                        <a href="#" id="add_new" class="btn btn-primary float-right ">Add New</a>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add Sale</h5>
+                        <div class="card-header-right">
+                            <a href="#" id="add_new" class="btn btn-primary float-right ">Add New</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @include('sales.create')
                     </div>
                 </div>
-                <div class="card-body">
-                  @include('sales.create')
-                </div>
             </div>
-        </div>
         @endcan
     </div>
     <!-- Delete Modal -->
     <x-modals.delete :route="'sales'" :title="'Product Sale'" />
     <!-- /Delete Modal -->
-
-
 @endsection
 
 
 @push('page-js')
     <!-- Select2 js-->
-    <script src="{{asset('jambasangsang/assets/select2/js/select2.min.js')}}"></script>
+    <script src="{{ asset('assetss/assets/select2/js/select2.min.js') }}"></script>
     <script>
-         $(document).ready(function() {
+        $(document).ready(function() {
 
             $('#datatable-export').on('click', '.editbtn', function() {
                 event.preventDefault();

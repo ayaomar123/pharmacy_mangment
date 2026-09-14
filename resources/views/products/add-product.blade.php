@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @push('page-css')
-	<!-- Select2 CSS -->
-	<link rel="stylesheet" href="{{asset('jambasangsang/assets/select2/css/select2.min.css')}}">
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{{ asset('assetss/assets/select2/css/select2.min.css') }}">
 @endpush
 
 @section('content')
-
     <div class="page-header">
         <div class="page-block">
             <div class="row align-items-center">
@@ -25,7 +24,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -39,14 +38,16 @@
                                 <i class="feather icon-more-horizontal"></i>
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                <li class="dropdown-item full-card"><a href="#!"><span><i
+                                                class="feather icon-maximize"></i>
                                             maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
                                             Restore</span></a>
                                 </li>
                                 <li class="dropdown-item minimize-card"><a href="#!"><span><i
                                                 class="feather icon-minus"></i> collapse</span><span style="display:none"><i
                                                 class="feather icon-plus"></i> expand</span></a></li>
-                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                <li class="dropdown-item reload-card"><a href="#!"><i
+                                            class="feather icon-refresh-cw"></i>
                                         reload</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
                                         remove</a></li>
@@ -81,7 +82,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Selling Price<span class="text-danger">*</span></label>
-                                        <input class="form-control" type="text" name="price" value="{{ old('price') }}">
+                                        <input class="form-control" type="text" name="price"
+                                            value="{{ old('price') }}">
                                     </div>
                                 </div>
 
@@ -120,11 +122,11 @@
 @endsection
 
 @push('page-js')
-	<!-- Select2 JS -->
-	<script src="{{asset('jambasangsang/assets/select2/js/select2.min.js')}}"></script>
+    <!-- Select2 JS -->
+    <script src="{{ asset('assetss/assets/select2/js/select2.min.js') }}"></script>
 
     <script>
-         $(document).ready(function() {
+        $(document).ready(function() {
             $('.select2').select2();
         });
     </script>

@@ -2,7 +2,7 @@
 
 @push('page-css')
     <!-- Select2 css-->
-    <link rel="stylesheet" href="{{ asset('jambasangsang/assets/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/assets/select2/css/select2.min.css') }}">
 @endpush
 
 
@@ -38,7 +38,8 @@
                                 <i class="feather icon-more-horizontal"></i>
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                <li class="dropdown-item full-card"><a href="#!"><span><i
+                                                class="feather icon-maximize"></i>
                                             maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
                                             Restore</span></a>
                                 </li>
@@ -46,7 +47,8 @@
                                                 class="feather icon-minus"></i> collapse</span><span style="display:none"><i
                                                 class="feather icon-plus"></i> expand</span></a>
                                 </li>
-                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                <li class="dropdown-item reload-card"><a href="#!"><i
+                                            class="feather icon-refresh-cw"></i>
                                         reload</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
                                         remove</a></li>
@@ -86,7 +88,6 @@
                                                         $count = 0;
                                                     @endphp
                                                 @endif
-
                                             @endforeach
                                         </td>
 
@@ -214,7 +215,7 @@
 
 @push('page-js')
     <!-- Select2 js-->
-    <script src="{{ asset('jambasangsang/assets/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assetss/assets/select2/js/select2.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.select2').select2();
@@ -246,5 +247,4 @@
             //
         });
     </script>
-
 @endpush
