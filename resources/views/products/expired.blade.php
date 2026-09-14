@@ -43,7 +43,7 @@
                                             <h2 class="table-avatar">
                                                 @if (!empty($product->image))
                                                     <span class="avatar avatar-sm mr-2">
-                                                        <img class="avatar-img"
+                                                        <img class="avatar-img" style="width: 50px; height: 50px;"
                                                             src="{{ asset('img/drugs.png') }}"
                                                             alt="{{ __('app.products.image_alt') }}">
                                                     </span>
