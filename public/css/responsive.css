@@ -1,0 +1,138 @@
+/*
+ * Responsive corrections for the bundled admin theme.
+ *
+ * Loaded after assetss/assets/css/style.css (and layout-rtl.css) so these rules
+ * win. Everything here fixes a behaviour that is broken at phone/tablet width;
+ * nothing here changes the desktop design on purpose.
+ */
+
+/* ---------------------------------------------------------------------------
+ * Container gutter
+ *
+ * The theme ships style.css with Bootstrap's `.container` horizontal padding
+ * commented out. `.row` still carries its -15px margins, so below 1200px -
+ * where `.container` is full width - every row hangs 15px off both edges of the
+ * screen and the page scrolls sideways. Putting the gutter back makes the row
+ * margins cancel out again, exactly as Bootstrap intends.
+ * ------------------------------------------------------------------------ */
+.pcoded-wrapper.container,
+.pcoded-header > .container,
+.pcoded-navbar .navbar-wrapper.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Header
+ * ------------------------------------------------------------------------ */
+@media only screen and (max-width: 991px) {
+    /* The account/notifications/language row that `.mob-toggler` reveals is
+       positioned over the page, so it needs its own background to stay
+       readable - the theme only styles it while the horizontal menu is on. */
+    .pcoded-header > .container > .collapse.navbar-collapse.d-flex {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+        padding: 0 15px;
+        background: #fff;
+        box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.16);
+    }
+
+    .pcoded-header > .container > .collapse.navbar-collapse.d-flex .navbar-nav {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Keep the brand clear of the hamburger and the account toggler. */
+    .pcoded-header .m-header .b-brand {
+        margin: 0 47px;
+    }
+}
+
+/* The header dropdowns are anchored to an icon at the very edge of a narrow
+ * screen. Bootstrap positions them with inline styles, so instead of fighting
+ * that, just stop them from being wider than the screen. */
+@media only screen and (max-width: 575px) {
+    .pcoded-header .dropdown-menu {
+        max-width: calc(100vw - 16px);
+        min-width: 0;
+    }
+
+    .pcoded-header .dropdown .notification .noti-body {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    .pcoded-header .dropdown .notification .noti-body li.notification .media-body p {
+        white-space: normal;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+ * Card headers
+ *
+ * In the stock theme `.card-header-right` only holds the maximize/collapse
+ * dropdown, so the theme hides it below 576px and layout-rtl.css hides it at
+ * every width. In this app it also holds each card's primary action - "Add
+ * New", "Add Category", "Back", "Create Backup" - so hiding it takes away the
+ * only way to reach those actions: on a phone in either language, and on any
+ * screen in Arabic. Keep it visible and let the header wrap instead.
+ * ------------------------------------------------------------------------ */
+[dir="rtl"] .card .card-header .card-header-right {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 767px) {
+    .card .card-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .card .card-header > h3,
+    .card .card-header > h4,
+    .card .card-header > h5 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .card .card-header .card-header-right,
+    [dir="rtl"] .card .card-header .card-header-right {
+        position: static;
+        display: flex;
+        align-items: center;
+        float: none;
+        /* logical property so the action stays on the trailing edge in RTL too */
+        margin-inline-start: auto;
+    }
+
+    .card .card-header .card-header-right .btn.float-right {
+        float: none !important;
+    }
+
+    /* The card-option dropdown (maximize / collapse / reload / remove) only
+       crowds the header once it wraps, and duplicates browser controls. */
+    .card .card-header .card-header-right .btn-group.card-option {
+        display: none;
+    }
+}
+
+/* A bare file input keeps its (wide) intrinsic size and pushes its column off
+   the screen - the avatar and logo pickers do this on the user and stock forms. */
+input[type="file"] {
+    max-width: 100%;
+}
+
+/* The settings screen nests its own `.container` inside the page container,
+   which doubles the gutter and re-introduces the offset columns. */
+.pcoded-wrapper .container {
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.pcoded-wrapper .col-md-offset-2 {
+    margin-left: 0;
+}

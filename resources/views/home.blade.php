@@ -20,190 +20,187 @@
 </div>
 <!-- [ Main Content ] start -->
 <div class="row">
-    <div class="row">
-        <!-- table card-1 start -->
-        <div class="col-md-12 col-xl-4">
-            <div class="card flat-card">
-                <div class="row-table">
-                    <div class="col-sm-6 card-body br">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/payment.png') }}" width="60" alt="">
-                                {{-- <i class="icon feather icon-eye text-c-green mb-1 d-block"></i> --}}
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{AppSettings::get('app_currency', '$')}} {{$today_sales}}</h5>
-                                <span>{{ __('app.dashboard.today_sales') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/cash-payment.png') }}" width="60" alt="">
-                                {{-- <i class="icon feather icon-music text-c-red mb-1 d-block"></i> --}}
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{ $yesterday_sales }}</h5>
-                                <span>{{ __('app.dashboard.yesterday_sales') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row-table">
-                    <div class="col-sm-6 card-body br">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/cash-flow.png') }}" width="60" alt="">
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{ $last_sevenDays }}</h5>
-                                <span>{{ __('app.dashboard.last_seven_days') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/revenue.png') }}" width="60" alt="">
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>120</h5>
-                                <span>{{ __('app.dashboard.revenue') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- widget primary card start -->
-            {{-- <div class="card flat-card widget-primary-card">
-                <div class="row-table">
-                    <div class="col-sm-3 card-body">
-                        <i class="feather icon-star-on"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h4>4000 +</h4>
-                        <h6>Ratings Received</h6>
-                    </div>
-                </div>
-            </div> --}}
-            <!-- widget primary card end -->
-        </div>
-        <!-- table card-1 end -->
-        <!-- table card-2 start -->
-        <div class="col-md-12 col-xl-4">
-            <div class="card flat-card">
-                <div class="row-table">
-                    <div class="col-sm-6 card-body br">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/inventory.png') }}" width="60" alt="">
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{ $total_suppliers }}</h5>
-                                <span> {{ __('app.dashboard.suppliers') }}</span>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6 card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/drugs.png') }}" width="60" alt="">
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{$total_expired_products}}</h5>
-                                <span>{{ __('app.dashboard.expired_medicines') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row-table">
-                    <div class="col-sm-6 card-body br">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/medical-team.png') }}" width="60" alt="">
-                                {{-- <i
-                                    class="icon feather icon-rotate-ccw text-c-blue mb-1 d-block"></i> --}}
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{\DB::table('users')->count()}}</h5>
-                                <span>{{ __('app.dashboard.users') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="{{ asset('img/options.png') }}" width="60" alt="">
-
-                                {{-- <i
-                                    class="icon feather icon-shopping-cart text-c-blue mb-1 d-blockz"></i> --}}
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{$total_categories}}</h5>
-                                <span>{{ __('app.dashboard.all_categories') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- widget-success-card start -->
-            {{-- <div class="card flat-card widget-purple-card">
-                <div class="row-table">
-                    <div class="col-sm-3 card-body">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="col-sm-9">
-                        <h4>17</h4>
-                        <h6>Achievements</h6>
-                    </div>
-                </div>
-            </div> --}}
-            <!-- widget-success-card end -->
-        </div>
-        <!-- table card-2 end -->
-        <!-- Widget primary-success card start -->
-        <div class="col-md-12 col-xl-4">
-            <div class="card support-bar overflow-hidden">
-                <div class="card-body pb-0">
+    <!-- table card-1 start -->
+    <div class="col-md-12 col-xl-4">
+        <div class="card flat-card">
+            <div class="row-table">
+                <div class="col-sm-6 card-body br">
                     <div class="row">
-                        <div class="col-md-8">
-                            <h2 class="m-0">{{ $total_medicines }}</h2><br>
-
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/payment.png') }}" width="60" alt="">
+                            {{-- <i class="icon feather icon-eye text-c-green mb-1 d-block"></i> --}}
                         </div>
-                        <div class="col-md-4">
-                            <img src="{{ asset('img/medicine.png') }}" width="50" alt="">
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{AppSettings::get('app_currency', '$')}} {{$today_sales}}</h5>
+                            <span>{{ __('app.dashboard.today_sales') }}</span>
                         </div>
                     </div>
-                    <span class="text-c-blue">{{ __('app.dashboard.total_medicines') }}</span>
-
-                    <p class="mb-3 mt-3">{{ __('app.dashboard.total_medicines_hint') }}</p>
-
                 </div>
-                <div id="support-chart"></div>
-                <div class="card-footer bg-primary text-white">
-                    <div class="row text-center">
-                        <div class="col">
-                            <h4 class="m-0 text-white">{{ $available_medicines }}</h4>
-                            <span>{{ __('app.dashboard.available') }}</span>
+                <div class="col-sm-6 card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/cash-payment.png') }}" width="60" alt="">
+                            {{-- <i class="icon feather icon-music text-c-red mb-1 d-block"></i> --}}
                         </div>
-                        <div class="col">
-                            <h4 class="m-0 text-white">{{ $total_medicines_runningOutStock }}</h4>
-                            <span>{{ __('app.dashboard.running_out') }}</span>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{ $yesterday_sales }}</h5>
+                            <span>{{ __('app.dashboard.yesterday_sales') }}</span>
                         </div>
-                        <div class="col">
-                            <h4 class="m-0 text-white">{{ $total_medicines_outStock }}</h4>
-                            <span>{{ __('app.dashboard.out_stock') }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row-table">
+                <div class="col-sm-6 card-body br">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/cash-flow.png') }}" width="60" alt="">
+                        </div>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{ $last_sevenDays }}</h5>
+                            <span>{{ __('app.dashboard.last_seven_days') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/revenue.png') }}" width="60" alt="">
+                        </div>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>120</h5>
+                            <span>{{ __('app.dashboard.revenue') }}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Widget primary-success card end -->
-        <!-- [ Main Content ] end -->
-
+        <!-- widget primary card start -->
+        {{-- <div class="card flat-card widget-primary-card">
+            <div class="row-table">
+                <div class="col-sm-3 card-body">
+                    <i class="feather icon-star-on"></i>
+                </div>
+                <div class="col-sm-9">
+                    <h4>4000 +</h4>
+                    <h6>Ratings Received</h6>
+                </div>
+            </div>
+        </div> --}}
+        <!-- widget primary card end -->
     </div>
+    <!-- table card-1 end -->
+    <!-- table card-2 start -->
+    <div class="col-md-12 col-xl-4">
+        <div class="card flat-card">
+            <div class="row-table">
+                <div class="col-sm-6 card-body br">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/inventory.png') }}" width="60" alt="">
+                        </div>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{ $total_suppliers }}</h5>
+                            <span> {{ __('app.dashboard.suppliers') }}</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-6 card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/drugs.png') }}" width="60" alt="">
+                        </div>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{$total_expired_products}}</h5>
+                            <span>{{ __('app.dashboard.expired_medicines') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-table">
+                <div class="col-sm-6 card-body br">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/medical-team.png') }}" width="60" alt="">
+                            {{-- <i
+                                class="icon feather icon-rotate-ccw text-c-blue mb-1 d-block"></i> --}}
+                        </div>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{\DB::table('users')->count()}}</h5>
+                            <span>{{ __('app.dashboard.users') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{ asset('img/options.png') }}" width="60" alt="">
+
+                            {{-- <i
+                                class="icon feather icon-shopping-cart text-c-blue mb-1 d-blockz"></i> --}}
+                        </div>
+                        <div class="col-sm-8 text-md-center">
+                            <h5>{{$total_categories}}</h5>
+                            <span>{{ __('app.dashboard.all_categories') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- widget-success-card start -->
+        {{-- <div class="card flat-card widget-purple-card">
+            <div class="row-table">
+                <div class="col-sm-3 card-body">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="col-sm-9">
+                    <h4>17</h4>
+                    <h6>Achievements</h6>
+                </div>
+            </div>
+        </div> --}}
+        <!-- widget-success-card end -->
+    </div>
+    <!-- table card-2 end -->
+    <!-- Widget primary-success card start -->
+    <div class="col-md-12 col-xl-4">
+        <div class="card support-bar overflow-hidden">
+            <div class="card-body pb-0">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="m-0">{{ $total_medicines }}</h2><br>
+
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ asset('img/medicine.png') }}" width="50" alt="">
+                    </div>
+                </div>
+                <span class="text-c-blue">{{ __('app.dashboard.total_medicines') }}</span>
+
+                <p class="mb-3 mt-3">{{ __('app.dashboard.total_medicines_hint') }}</p>
+
+            </div>
+            <div id="support-chart"></div>
+            <div class="card-footer bg-primary text-white">
+                <div class="row text-center">
+                    <div class="col">
+                        <h4 class="m-0 text-white">{{ $available_medicines }}</h4>
+                        <span>{{ __('app.dashboard.available') }}</span>
+                    </div>
+                    <div class="col">
+                        <h4 class="m-0 text-white">{{ $total_medicines_runningOutStock }}</h4>
+                        <span>{{ __('app.dashboard.running_out') }}</span>
+                    </div>
+                    <div class="col">
+                        <h4 class="m-0 text-white">{{ $total_medicines_outStock }}</h4>
+                        <span>{{ __('app.dashboard.out_stock') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Widget primary-success card end -->
+
     {{-- <div class="row"> --}}
         {{-- <div class="col-md-12 col-lg-12"> --}}
 
@@ -282,8 +279,6 @@
         </div> --}}
 
 
-    {{-- </div> --}}
-{{-- </div> --}}
-
-
+</div>
+<!-- [ Main Content ] end -->
 @endsection
