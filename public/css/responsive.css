@@ -119,6 +119,20 @@
     }
 }
 
+/* ---------------------------------------------------------------------------
+ * Bidirectional text
+ *
+ * Latin-script values inside an RTL page are reordered by the bidi algorithm
+ * around their neutral characters: the date "09 Feb, 2022" comes out as
+ * "Feb, 2022 09" and the amount "$ 10" as "10 $". Letting each cell take its
+ * direction from its own first strong character puts them back in order,
+ * without changing where the column is aligned.
+ * ------------------------------------------------------------------------ */
+[dir="rtl"] .table td,
+[dir="rtl"] .table th {
+    unicode-bidi: plaintext;
+}
+
 /* A bare file input keeps its (wide) intrinsic size and pushes its column off
    the screen - the avatar and logo pickers do this on the user and stock forms. */
 input[type="file"] {
