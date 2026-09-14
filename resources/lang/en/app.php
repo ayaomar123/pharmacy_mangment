@@ -119,6 +119,8 @@ return [
         'my_messages' => 'My Messages',
         'lock_screen' => 'Lock Screen',
         'logout' => 'Logout',
+        'toggle_menu' => 'Toggle navigation menu',
+        'toggle_account_menu' => 'Toggle account menu',
     ],
 
     'alerts' => [

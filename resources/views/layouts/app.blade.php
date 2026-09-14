@@ -23,6 +23,8 @@
         <!-- right-to-left overrides, must stay after the base theme stylesheets -->
         <link rel="stylesheet" href="{{ asset('assetss/assets/css/layout-rtl.css') }}">
     @endif
+    <!-- responsive corrections, must stay last so they win over the theme -->
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
      <!-- Scripts -->
      {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
@@ -71,8 +73,10 @@
     {{-- <div id="app"> --}}
 
 
-    <main class="py-4 mt-5">
-        <div class="pcoded-wrapper container mt-5">
+    {{-- Below 992px the theme replaces the horizontal menu bar with the off-canvas
+         menu, so the space it occupies must not stay reserved. --}}
+    <main class="py-4 mt-0 mt-lg-5">
+        <div class="pcoded-wrapper container mt-3 mt-lg-5">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
                     <div class="main-body">

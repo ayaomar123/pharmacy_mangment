@@ -117,6 +117,8 @@ return [
         'my_messages' => 'رسائلي',
         'lock_screen' => 'قفل الشاشة',
         'logout' => 'تسجيل الخروج',
+        'toggle_menu' => 'إظهار/إخفاء قائمة التنقل',
+        'toggle_account_menu' => 'إظهار/إخفاء قائمة الحساب',
     ],
 
     'alerts' => [

@@ -1,12 +1,16 @@
 <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
     <div class="container">
         <div class="m-header">
-            {{-- <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a> --}}
-                <a href="{{route('dashboard')}}" class="b-brand">
+            {{-- Opens the navigation menu below 992px, where the horizontal menu
+                 is turned off by the theme. Hidden on wider screens by the theme css. --}}
+            <a class="mobile-menu" id="mobile-collapse" href="#!" role="button"
+               aria-label="{{ __('app.header.toggle_menu') }}"><span></span></a>
+            <a href="{{route('dashboard')}}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
 			    <img style="width: 6rem" class="logo" src="@if(!empty(AppSettings::get('logo'))) {{asset('storage/'.AppSettings::get('logo'))}} @else{{asset('img/logo1.png')}} @endif" alt="Logo">
             </a>
-            <a href="#!" class="mob-toggler">
+            <a href="#!" class="mob-toggler" role="button"
+               aria-label="{{ __('app.header.toggle_account_menu') }}">
                 <i class="feather icon-more-vertical"></i>
             </a>
 

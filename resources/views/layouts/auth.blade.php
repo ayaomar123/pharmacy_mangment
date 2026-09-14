@@ -18,6 +18,8 @@
 		<!-- right-to-left overrides, must stay after the base theme stylesheets -->
 		<link rel="stylesheet" href="{{ asset('assetss/assets/css/layout-rtl.css') }}">
 	@endif
+	<!-- responsive corrections, must stay last so they win over the theme -->
+	<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 </head>
 
 <body>
