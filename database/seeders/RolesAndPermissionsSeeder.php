@@ -24,7 +24,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
 
         $arrayOfPermissionNames = [
-          'view-sales', 'create-sales','destroy-sale','update-sales',
+          'view-sales', 'create-sales','destroy-sales','update-sales',
           'view-reports','view-category','create-category','destroy-category','update-category',
           'view-products','create-product','update-product','destroy-product',
           'view-purchase','create-purchase','update-purchase','destroy-purchase',
