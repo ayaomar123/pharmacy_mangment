@@ -195,7 +195,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
 {{--                                <img src="{{ asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">--}}
-                                <img src="{{ asset('storage').'/'.auth()->user()->avatar ?? asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="{{ __('app.users.picture') }}">
+                                <img src="{{ asset('img/medical-team.png') }}" class="img-radius" alt="{{ __('app.users.picture') }}">
                                 <span> {{ Auth::user()->name }}</span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();" class="dud-logout" title="{{ __('app.header.logout') }}">
@@ -207,8 +207,6 @@
                             </div>
                             <ul class="pro-body">
                                 <li><a href="{{route('profile')}}" class="dropdown-item"><i class="feather icon-user"></i> {{ __('app.header.profile') }}</a></li>
-                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> {{ __('app.header.my_messages') }}</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> {{ __('app.header.lock_screen') }}</a></li>
                             </ul>
                         </div>
                     </div>

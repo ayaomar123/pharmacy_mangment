@@ -67,7 +67,7 @@
                                             @if (!empty($user->avatar))
                                                 <span class="avatar avatar-sm mr-2">
                                                     <img class="avatar-img" width="30"
-                                                        src="{{ asset('storage/users/' . $user->avatar) }}"
+                                                        src="{{ asset('img/medical-team.png') }}"
                                                         alt="{{ __('app.products.image_alt') }}">
                                                 </span>
                                             @endif

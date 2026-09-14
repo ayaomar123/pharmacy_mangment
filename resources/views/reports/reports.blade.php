@@ -165,7 +165,7 @@
                                                         @if (!empty($product->purchase->image))
                                                             <span class="avatar avatar-sm mr-2">
                                                                 <img class="avatar-img" width="30"
-                                                                    src="{{ asset('storage/purchases/' . $product->purchase->image) }}"
+                                                                    src="{{ asset('img/drugs.png') }}"
                                                                     alt="{{ __('app.products.image_alt') }}">
                                                             </span>
                                                         @endif
@@ -213,7 +213,7 @@
                                                         @if (!empty($purchase->image))
                                                             <span class="avatar avatar-sm mr-2">
                                                                 <img class="avatar-img" width="30"
-                                                                    src="{{ asset('storage/purchases/' . $purchase->image) }}"
+                                                                    src="{{ asset('img/drugs.png') }}"
                                                                     alt="{{ __('app.products.image_alt') }}">
                                                             </span>
                                                         @endif
