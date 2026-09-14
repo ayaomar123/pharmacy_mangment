@@ -2,7 +2,7 @@
 
 @push('page-css')
     <!-- Select2 css-->
-    <link rel="stylesheet" href="{{ asset('jambasangsang/assets/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/assets/select2/css/select2.min.css') }}">
 @endpush
 
 
@@ -214,7 +214,7 @@
 
 @push('page-js')
     <!-- Select2 js-->
-    <script src="{{ asset('jambasangsang/assets/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assetss/assets/select2/js/select2.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.select2').select2();

@@ -275,7 +275,7 @@
 
 @push('page-js')
     <!-- Select2 js-->
-    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assetss/assets/select2/js/select2.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {

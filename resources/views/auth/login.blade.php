@@ -14,7 +14,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="@if(!empty(AppSettings::get('logo'))) {{asset('storage/'.AppSettings::get('favicon'))}} @else{{asset('img/fav.png')}} @endif">
 
 	<!-- vendor css -->
-	<link rel="stylesheet" href="{{ asset('jambasangsang/assets/css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('assetss/assets/css/style.css') }}">
 
 
 
@@ -70,10 +70,10 @@
 <!-- [ auth-signin ] end -->
 
 <!-- Required Js -->
-<script src="{{ asset('jambasangsang/assets/js/vendor-all.min.js') }}"></script>
-<script src="{{ asset('jambasangsang/assets/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assetss/assets/js/vendor-all.min.js') }}"></script>
+<script src="{{ asset('assetss/assets/js/plugins/bootstrap.min.js') }}"></script>
 
-<script src="{{ asset('jambasangsang/assets/js/pcoded.min.js') }}"></script>
+<script src="{{ asset('assetss/assets/js/pcoded.min.js') }}"></script>
 
 
 

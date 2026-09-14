@@ -122,10 +122,7 @@
 @endsection
 
 @push('page-js')
-	<!-- Datetimepicker JS -->
-	<script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 	<!-- Select2 JS -->
-	<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+	<script src="{{asset('assetss/assets/select2/js/select2.min.js')}}"></script>
 @endpush
 

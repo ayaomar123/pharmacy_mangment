@@ -2,9 +2,8 @@
 
 @push('page-css')
 	<!-- Select2 CSS -->
-    <link rel="stylesheet" href="{{asset('jambasangsang/assets/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assetss/assets/select2/css/select2.min.css')}}">
 
-	<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
 @endpush
 
 
@@ -139,11 +138,8 @@
 @endsection
 
 @push('page-js')
-	<!-- Datetimepicker JS -->
-	<script src="{{asset('assets/js/moment.min.js')}}"></script>
-	<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
 	<!-- Select2 JS -->
-    <script src="{{asset('jambasangsang/assets/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('assetss/assets/select2/js/select2.min.js')}}"></script>
     <script>
          $(document).ready(function() {
             $('.select2').select2().maximizeSelect2Height();

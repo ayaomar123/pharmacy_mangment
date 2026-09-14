@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @push('page-css')
 	<!-- Select2 CSS -->
-	<link rel="stylesheet" href="{{asset('jambasangsang/assets/select2/css/select2.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assetss/assets/select2/css/select2.min.css')}}">
 @endpush
 
 @section('content')
@@ -121,7 +121,7 @@
 
 @push('page-js')
 	<!-- Select2 JS -->
-	<script src="{{asset('jambasangsang/assets/select2/js/select2.min.js')}}"></script>
+	<script src="{{asset('assetss/assets/select2/js/select2.min.js')}}"></script>
 
     <script>
          $(document).ready(function() {
