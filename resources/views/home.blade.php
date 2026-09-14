@@ -7,12 +7,12 @@
         <div class="row align-items-center">
             <div class="col-md-8 col-auto">
                 <div class="page-header-title">
-                    <h3 class="m-b-10">Dashboard</h3>
+                    <h3 class="m-b-10">{{ __('app.common.dashboard') }}</h3>
                 </div>
             </div>
             <div class="col-sm-4 col">
                 <ul class="breadcrumb">
-	                <h5 class="page-title">Welcome {{auth()->user()->name}}!</h5>
+	                <h5 class="page-title">{{ __('app.dashboard.welcome', ['name' => auth()->user()->name]) }}</h5>
                 </ul>
             </div>
         </div>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{AppSettings::get('app_currency', '$')}} {{$today_sales}}</h5>
-                                <span>Todays Sales</span>
+                                <span>{{ __('app.dashboard.today_sales') }}</span>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{ $yesterday_sales }}</h5>
-                                <span>Yesterday Sales</span>
+                                <span>{{ __('app.dashboard.yesterday_sales') }}</span>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{ $last_sevenDays }}</h5>
-                                <span>Last 7 Days</span>
+                                <span>{{ __('app.dashboard.last_seven_days') }}</span>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>120</h5>
-                                <span>Revenue</span>
+                                <span>{{ __('app.dashboard.revenue') }}</span>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{ $total_suppliers }}</h5>
-                                <span> Suppliers</span>
+                                <span> {{ __('app.dashboard.suppliers') }}</span>
                             </div>
 
                         </div>
@@ -113,7 +113,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{$total_expired_products}}</h5>
-                                <span>Expired Medicines</span>
+                                <span>{{ __('app.dashboard.expired_medicines') }}</span>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{\DB::table('users')->count()}}</h5>
-                                <span>Users</span>
+                                <span>{{ __('app.dashboard.users') }}</span>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="col-sm-8 text-md-center">
                                 <h5>{{$total_categories}}</h5>
-                                <span>All Categories</span>
+                                <span>{{ __('app.dashboard.all_categories') }}</span>
                             </div>
                         </div>
                     </div>
@@ -176,9 +176,9 @@
                             <img src="{{ asset('img/medicine.png') }}" width="50" alt="">
                         </div>
                     </div>
-                    <span class="text-c-blue">Total Medicines</span>
+                    <span class="text-c-blue">{{ __('app.dashboard.total_medicines') }}</span>
 
-                    <p class="mb-3 mt-3">Total number of medicnes in the pharmacy.</p>
+                    <p class="mb-3 mt-3">{{ __('app.dashboard.total_medicines_hint') }}</p>
 
                 </div>
                 <div id="support-chart"></div>
@@ -186,15 +186,15 @@
                     <div class="row text-center">
                         <div class="col">
                             <h4 class="m-0 text-white">{{ $available_medicines }}</h4>
-                            <span>Available</span>
+                            <span>{{ __('app.dashboard.available') }}</span>
                         </div>
                         <div class="col">
                             <h4 class="m-0 text-white">{{ $total_medicines_runningOutStock }}</h4>
-                            <span>Running Out</span>
+                            <span>{{ __('app.dashboard.running_out') }}</span>
                         </div>
                         <div class="col">
                             <h4 class="m-0 text-white">{{ $total_medicines_outStock }}</h4>
-                            <span>Out Stock</span>
+                            <span>{{ __('app.dashboard.out_stock') }}</span>
                         </div>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
 
             <div class="col-md-12 card card-table">
                 <div class="card-header">
-                    <h5>Today's Sales</h5>
+                    <h5>{{ __('app.dashboard.todays_sales') }}</h5>
                     <div class="card-header-right">
                         <div class="btn-group card-option">
                             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
@@ -218,16 +218,14 @@
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a></li>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a></li>
                                 <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -237,10 +235,10 @@
                         <table class="table table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Medicine</th>
-                                    <th>Quantity</th>
-                                    <th>Total Price</th>
-                                    <th>Date</th>
+                                    <th>{{ __('app.common.medicine') }}</th>
+                                    <th>{{ __('app.common.quantity') }}</th>
+                                    <th>{{ __('app.common.total_price') }}</th>
+                                    <th>{{ __('app.common.date') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

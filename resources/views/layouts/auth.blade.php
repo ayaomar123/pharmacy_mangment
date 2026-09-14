@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ locale_direction() }}">
 
 <head>
 	<title>{{ucfirst(AppSettings::get('app_name', 'App'))}} - {{ucfirst($title ?? '')}}</title>
@@ -14,6 +14,10 @@
 
 	<!-- vendor css -->
 	<link rel="stylesheet" href="{{ asset('assetss/assets/css/style.css') }}">
+	@if (is_rtl())
+		<!-- right-to-left overrides, must stay after the base theme stylesheets -->
+		<link rel="stylesheet" href="{{ asset('assetss/assets/css/layout-rtl.css') }}">
+	@endif
 </head>
 
 <body>
@@ -37,8 +41,11 @@
 
 						<hr>
 						<p class="mb-0 text-muted">
-							<a href="{{ route('login') }}" class="f-w-400">Back to sign in</a>
+							<a href="{{ route('login') }}" class="f-w-400">{{ __('app.auth.back_to_sign_in') }}</a>
 						</p>
+						<div class="mt-3 d-flex justify-content-center">
+							@include('layouts.language-switcher')
+						</div>
 					</div>
 				</div>
 			</div>

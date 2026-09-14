@@ -27,7 +27,7 @@ class PermissionController extends Controller
             $permission = Permission::create(['name' => $perm]);
             $permission->assignRole('super-admin');
         }
-        $notification = notify('Permission Created Successfully!!');
+        $notification = notify(__('app.messages.permission_created'));
         return back()->with($notification);
     }
 
@@ -41,7 +41,7 @@ class PermissionController extends Controller
         $permission->update([
             'name' => $request->permission,
         ]);
-        $notification = notify('permission updated');
+        $notification = notify(__('app.messages.permission_updated'));
         return back()->with($notification);
     }
 
@@ -50,7 +50,7 @@ class PermissionController extends Controller
     {
         $permission = Permission::find($request->id);
         $permission->delete();
-        $notification = notify('Permission has been deleted');
+        $notification = notify(__('app.messages.permission_deleted'));
         return back()->with($notification);
     }
 }

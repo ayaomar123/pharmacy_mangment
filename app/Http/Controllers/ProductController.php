@@ -65,11 +65,11 @@ class ProductController extends Controller
             'description'=>$request->description,
         ]);
         $notification=array(
-            'success'=> "Medicine added successfully!",
+            'success' => __('app.messages.medicine_added'),
         );
        } catch (\Throwable $th) {
         $notifications = array(
-            'error' => "Opps!! Something got wrong, Please check and try again",
+            'error' => __('app.messages.generic_error'),
         );
        }
         return redirect()->route('products')->with($notification);
@@ -103,11 +103,11 @@ class ProductController extends Controller
             'description'=>$request->description,
         ]);
         $notification=array(
-            'success'=>"Medicine updated successfully!",
+            'success' => __('app.messages.medicine_updated'),
         );
        } catch (\Throwable $th) {
         $notifications = array(
-            'error' => "Opps!! Something got wrong, Please check and try again",
+            'error' => __('app.messages.generic_error'),
         );
        }
         return redirect()->route('products')->with($notification);
@@ -137,7 +137,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($request->id);
         $product->delete();
         $notification = array(
-            'success'=>"Product has been deleted",
+            'success' => __('app.messages.product_deleted'),
         );
         return back()->with($notification);
     }

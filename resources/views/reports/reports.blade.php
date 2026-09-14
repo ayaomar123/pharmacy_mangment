@@ -7,14 +7,14 @@
 
 @push('page-header')
     <div class="col-sm-7 col-auto">
-        <h3 class="page-title">Reports</h3>
+        <h3 class="page-title">{{ __('app.reports.title') }}</h3>
         <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Generate Reports</li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('app.common.dashboard') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('app.reports.generate_heading') }}</li>
         </ul>
     </div>
     <div class="col-sm-5 col">
-        <a href="#generate_report" data-toggle="modal" class="btn btn-primary float-right mt-2">Generate Report</a>
+        <a href="#generate_report" data-toggle="modal" class="btn btn-primary float-right mt-2">{{ __('app.reports.generate') }}</a>
     </div>
 @endpush
 
@@ -25,15 +25,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h3 class="m-b-10">Reports</h3>
+                        <h3 class="m-b-10">{{ __('app.reports.title') }}</h3>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                                Dashboard</a>
+                                {{ __('app.common.dashboard') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Reports</li>
+                        <li class="breadcrumb-item active">{{ __('app.reports.title') }}</li>
                     </ul>
                 </div>
             </div>
@@ -43,8 +43,12 @@
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-header">
-                    <h5>{{ request()->resource == 'products' ? 'Medicines ' : (request()->resource == 'purchases' ? 'Stocks' : (request()->resource == 'sales' ? 'Sales' : '')) }}
-                        Reports</h5>
+                    @php
+                        // request()->resource is user input, so look the label up in the
+                        // translated map instead of building a translation key from it.
+                        $resourceLabel = __('app.reports.resources')[request()->resource] ?? '';
+                    @endphp
+                    <h5>{{ __('app.reports.for_resource', ['resource' => $resourceLabel]) }}</h5>
                     <div class="card-header-right">
                         {{-- <a href="#generate_report" data-toggle="modal" class="btn btn-primary float-right mt-2">Generate --}}
                         {{-- Report</a> --}}
@@ -54,20 +58,16 @@
                                 <i class="feather icon-more-horizontal"></i>
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item full-card"><a href="#!"><span><i
-                                                class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a>
                                 </li>
-                                <li class="dropdown-item reload-card"><a href="#!"><i
-                                            class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="dash-widget-info">
-                            <h6 class="text-muted">Total Revenue</h6>
+                            <h6 class="text-muted">{{ __('app.reports.total_revenue') }}</h6>
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-primary w-50"></div>
                             </div>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="dash-widget-info">
 
-                            <h6 class="text-muted">Total Sales</h6>
+                            <h6 class="text-muted">{{ __('app.reports.total_sales') }}</h6>
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-success w-50"></div>
                             </div>
@@ -116,10 +116,10 @@
                                 <table id="datatable-export" class="table table-hover table-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Medicine Name</th>
-                                            <th>Quantity</th>
-                                            <th>Total Price</th>
-                                            <th>Date</th>
+                                            <th>{{ __('app.products.name') }}</th>
+                                            <th>{{ __('app.common.quantity') }}</th>
+                                            <th>{{ __('app.common.total_price') }}</th>
+                                            <th>{{ __('app.common.date') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -148,12 +148,12 @@
                                 <table id="datatable-export" class="table table-hover table-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Medicine Name</th>
-                                            <th>Category</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Discount</th>
-                                            <th>Expiry Date</th>
+                                            <th>{{ __('app.products.name') }}</th>
+                                            <th>{{ __('app.common.category') }}</th>
+                                            <th>{{ __('app.common.price') }}</th>
+                                            <th>{{ __('app.common.quantity') }}</th>
+                                            <th>{{ __('app.common.discount') }}</th>
+                                            <th>{{ __('app.common.expiry_date') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -166,7 +166,7 @@
                                                             <span class="avatar avatar-sm mr-2">
                                                                 <img class="avatar-img" width="30"
                                                                     src="{{ asset('storage/purchases/' . $product->purchase->image) }}"
-                                                                    alt="product image">
+                                                                    alt="{{ __('app.products.image_alt') }}">
                                                             </span>
                                                         @endif
                                                         {{ $product->purchase->name }}
@@ -197,12 +197,12 @@
                                 <table id="datatable-export" class="table table-hover table-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Medicine</th>
-                                            <th>Category</th>
-                                            <th>Purchase Price</th>
-                                            <th>Quantity</th>
-                                            <th>Supplier</th>
-                                            <th>Expire Date</th>
+                                            <th>{{ __('app.common.medicine') }}</th>
+                                            <th>{{ __('app.common.category') }}</th>
+                                            <th>{{ __('app.purchases.purchase_price') }}</th>
+                                            <th>{{ __('app.common.quantity') }}</th>
+                                            <th>{{ __('app.common.supplier') }}</th>
+                                            <th>{{ __('app.common.expire_date') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -214,7 +214,7 @@
                                                             <span class="avatar avatar-sm mr-2">
                                                                 <img class="avatar-img" width="30"
                                                                     src="{{ asset('storage/purchases/' . $purchase->image) }}"
-                                                                    alt="product image">
+                                                                    alt="{{ __('app.products.image_alt') }}">
                                                             </span>
                                                         @endif
                                                         {{ $purchase->name }}
@@ -244,9 +244,9 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h5>Generate Report</h5>
+                    <h5>{{ __('app.reports.generate') }}</h5>
                     <div class="card-header-right">
-                        <a href="#" id="add_new" class="btn btn-primary float-right ">Add New</a>
+                        <a href="#" id="add_new" class="btn btn-primary float-right ">{{ __('app.common.add_new') }}</a>
                     </div>
                 </div>
                 <div class="card-body">

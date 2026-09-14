@@ -12,15 +12,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h3 class="m-b-10">Roles</h3>
+                        <h3 class="m-b-10">{{ __('app.roles.title') }}</h3>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                                Dashboard</a>
+                                {{ __('app.common.dashboard') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Roles</li>
+                        <li class="breadcrumb-item active">{{ __('app.roles.title') }}</li>
                     </ul>
                 </div>
             </div>
@@ -30,7 +30,7 @@
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-header">
-                    <h5>Roles</h5>
+                    <h5>{{ __('app.roles.title') }}</h5>
                     <div class="card-header-right">
                         <div class="btn-group card-option">
                             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
@@ -38,20 +38,16 @@
                                 <i class="feather icon-more-horizontal"></i>
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item full-card"><a href="#!"><span><i
-                                                class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a>
                                 </li>
-                                <li class="dropdown-item reload-card"><a href="#!"><i
-                                            class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,9 +58,9 @@
                             class="datatable table table-striped table-bordered table-hover table-center mb-0">
                             <thead>
                                 <tr style="boder:1px solid black;">
-                                    <th>Name</th>
-                                    <th>Permissions</th>
-                                    <th class="text-center action-btn">Actions</th>
+                                    <th>{{ __('app.common.name') }}</th>
+                                    <th>{{ __('app.roles.permissions') }}</th>
+                                    <th class="text-center action-btn">{{ __('app.common.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,11 +93,11 @@
                                                     data-permissions="{{ $role->getAllPermissions() }}"
                                                     class="btn btn-sm btn-info editbtn" data-toggle="modal"
                                                     href="javascript:void(0)">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> {{ __('app.common.edit') }}
                                                 </a>
                                                 <a data-id="{{ $role->id }}" data-toggle="modal"
                                                     href="javascript:void(0)" class="btn btn-sm btn-danger deletebtn">
-                                                    <i class="fe fe-trash"></i> Delete
+                                                    <i class="fe fe-trash"></i> {{ __('app.common.delete') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -116,9 +112,9 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h5>Add Role</h5>
+                    <h5>{{ __('app.roles.add') }}</h5>
                     <div class="card-header-right">
-                        <a href="#" id="add_new" class="btn btn-primary float-right ">Add New</a>
+                        <a href="#" id="add_new" class="btn btn-primary float-right ">{{ __('app.common.add_new') }}</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -134,7 +130,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Role</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('app.alerts.close') }}">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -144,11 +140,11 @@
                         <div class="row form-row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Role</label>
+                                    <label>{{ __('app.common.role') }}</label>
                                     <input type="text" name="role" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <lable>Select Permissions</lable>
+                                    <lable>{{ __('app.roles.select_permissions') }}</lable>
                                     <select class="select2 form-select form-control multiple" name="permission[]"
                                         multiple="multiple">
                                         @foreach ($permissions as $permission)
@@ -158,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
                     </form>
                 </div>
             </div>
@@ -172,7 +168,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Role</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('app.alerts.close') }}">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -184,11 +180,11 @@
                             <div class="col-12">
                                 <input type="hidden" name="id" id="edit_id">
                                 <div class="form-group">
-                                    <label>Role</label>
+                                    <label>{{ __('app.common.role') }}</label>
                                     <input type="text" name="role" class="form-control edit_role">
                                 </div>
                                 <div class="form-group">
-                                    <lable>Select Permissions</lable>
+                                    <lable>{{ __('app.roles.select_permissions') }}</lable>
                                     <select class="select2 form-select form-control edit_perms" name="permission[]"
                                         multiple="multiple">
                                         @foreach ($permissions as $permission)
@@ -199,7 +195,7 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
                     </form>
                 </div>
             </div>
@@ -208,7 +204,7 @@
     <!-- /Edit Details Modal -->
 
     <!-- Delete Modal -->
-    <x-modals.delete :route="'roles'" :title="'Roles'" />
+    <x-modals.delete :route="'roles'" :title="__('app.entity.role')" />
     <!-- /Delete Modal -->
 @endsection
 
@@ -233,7 +229,7 @@
                 $('#edit_id').val(id);
                 $('.edit_role').val(role);
                 $(".edit_perms").val(permissions).trigger('change');
-                $('.btn-block').text("Update Changes");
+                $('.btn-block').text(@json(__('app.common.update_changes')));
             });
 
             $('#add_new').on('click', function() {
@@ -241,7 +237,7 @@
                 $('#edit_id').val('');
                 $(".edit_perms").val('').trigger('change');
                 $('.edit_role').val('');
-                $('.btn-block').text("Save Changes");
+                $('.btn-block').text(@json(__('app.common.save_changes')));
 
             });
             //

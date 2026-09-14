@@ -3,11 +3,11 @@
     <div class="row form-row">
         <div class="col-12">
             <div class="form-group">
-                <label>Role</label>
+                <label>{{ __('app.common.role') }}</label>
                 <input type="text" name="role" class="form-control edit_role">
             </div>
             <div class="form-group">
-                <lable>Select Permissions</lable>
+                <lable>{{ __('app.roles.select_permissions') }}</lable>
                 <select class="select2 form-select form-control edit_perms" name="permission[]"
                     multiple="multiple">
                     @foreach ($permissions as $permission)
@@ -17,5 +17,5 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+    <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
 </form>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ locale_direction() }}">
 
 <head>
     <meta charset="utf-8">
@@ -19,6 +19,10 @@
     <!-- vendor css -->
     <link rel="stylesheet" href="{{ asset('assetss/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assetss/assets/css/pcoded-horizontal.min.css') }}">
+    @if (is_rtl())
+        <!-- right-to-left overrides, must stay after the base theme stylesheets -->
+        <link rel="stylesheet" href="{{ asset('assetss/assets/css/layout-rtl.css') }}">
+    @endif
 
      <!-- Scripts -->
      {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
@@ -151,7 +155,7 @@
 		});
 
         $('.select2').select2({
-				placeholder: 'Select an option'
+				placeholder: @json(__('app.common.select_an_option'))
 			});
 
 

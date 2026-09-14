@@ -7,15 +7,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Category</h5>
+                        <h5 class="m-b-10">{{ __('app.categories.title') }}</h5>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                                Dashboard</a>
+                                {{ __('app.common.dashboard') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Categories</li>
+                        <li class="breadcrumb-item active">{{ __('app.categories.heading') }}</li>
                     </ul>
                 </div>
             </div>
@@ -26,10 +26,9 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Categories</h5>
+                    <h5>{{ __('app.categories.heading') }}</h5>
                     <div class="card-header-right">
-                        <a href="#add_categories" data-toggle="modal" class="btn btn-primary float-right mt-20">Add
-                            Category</a>
+                        <a href="#add_categories" data-toggle="modal" class="btn btn-primary float-right mt-20">{{ __('app.categories.add') }}</a>
                         <div class="btn-group card-option">
                             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -37,16 +36,14 @@
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a></li>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a></li>
                                 <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,9 +54,9 @@
                             class="datatable table table-striped table-bordered table-hover table-center mb-0">
                             <thead>
                                 <tr style="boder:1px solid black;">
-                                    <th>Name</th>
-                                    <th>Created date</th>
-                                    <th class="text-center action-btn">Actions</th>
+                                    <th>{{ __('app.common.name') }}</th>
+                                    <th>{{ __('app.common.created_date') }}</th>
+                                    <th class="text-center action-btn">{{ __('app.common.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,12 +73,12 @@
                                                 <a data-id="{{ $category->id }}" data-name="{{ $category->name }}"
                                                     class="btn btn-sm btn-info editbtn" data-toggle="modal"
                                                     href="javascript:void(0)">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> {{ __('app.common.edit') }}
                                                 </a>
                                                 <a data-id="{{ $category->id }}" data-toggle="modal"
                                                     href="#deleteConfirmModal{{ $key }}"
                                                     class="btn btn-sm btn-danger deletebtn">
-                                                    <i class="fe fe-trash"></i> Delete
+                                                    <i class="fe fe-trash"></i> {{ __('app.common.delete') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -101,8 +98,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Category</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title">{{ __('app.categories.add') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('app.alerts.close') }}">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -112,12 +109,12 @@
                         <div class="row form-row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Category</label>
+                                    <label>{{ __('app.common.category') }}</label>
                                     <input type="text" name="name" class="form-control">
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
                     </form>
                 </div>
             </div>
@@ -130,8 +127,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Category</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title">{{ __('app.categories.edit') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('app.alerts.close') }}">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -143,13 +140,13 @@
                             <div class="col-12">
                                 <input type="hidden" name="id" id="edit_id">
                                 <div class="form-group">
-                                    <label>Category</label>
+                                    <label>{{ __('app.common.category') }}</label>
                                     <input type="text" class="form-control edit_name" name="name">
                                 </div>
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
                     </form>
                 </div>
             </div>
@@ -158,7 +155,7 @@
     <!-- /Edit Details Modal -->
 
     <!-- Delete Modal -->
-    <x-modals.delete :route="'categories'" :title="'Category'" />
+    <x-modals.delete :route="'categories'" :title="__('app.entity.category')" />
     <!-- /Delete Modal -->
 @endsection
 

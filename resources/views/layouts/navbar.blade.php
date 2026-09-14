@@ -4,69 +4,69 @@
             <ul class="nav pcoded-inner-navbar sidenav-inner">
 
                 <li class="nav-item {{ route_is('dashboard') ? 'active active-cover' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    <a href="{{ route('dashboard') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">{{ __('app.nav.dashboard') }}</span></a>
                 </li>
 
                 @can('view-category')
                 <li class="nav-item  {{ route_is('categories') ? 'active active-cover' : '' }}">
-                    <a href="{{route('categories')}}"><i class="feather icon-layout"></i> <span>Categories</span></a>
+                    <a href="{{route('categories')}}"><i class="feather icon-layout"></i> <span>{{ __('app.nav.categories') }}</span></a>
                 </li>
                 @endcan
 
                 @can('view-products')
                 <li class="nav-item pcoded-hasmenu {{ route_is(('products')) || route_is(('add-product')) || route_is(('outstock')) || route_is(('expired')) || route_is(('edit-product')) ? 'active active-cover' : '' }}">
-                    <a href="#"><i class="feather icon-document"></i> <span> Medicine</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="feather icon-document"></i> <span> {{ __('app.nav.medicine') }}</span> <span class="menu-arrow"></span></a>
                     <ul class="pcoded-submenu">
-                        @can('view-products')<li class="{{ route_is(('products')) ? 'active' : '' }}"><a href="{{route('products')}}">Medicines</a></li>@endcan
-                        @can('create-product')<li class="{{ route_is('add-product') ? 'active' : '' }}"><a href="{{route('add-product')}}">Add Medicine</a></li>@endcan
-                        @can('view-outstock-products')<li class="{{ route_is('outstock') ? 'active' : '' }}"><a href="{{route('outstock')}}">Out-Stock</a></li>@endcan
-                        @can('view-expired-products')<li class="{{ route_is('expired') ? 'active' : '' }}"><a href="{{route('expired')}}">Expired</a></li>@endcan
+                        @can('view-products')<li class="{{ route_is(('products')) ? 'active' : '' }}"><a href="{{route('products')}}">{{ __('app.nav.medicines') }}</a></li>@endcan
+                        @can('create-product')<li class="{{ route_is('add-product') ? 'active' : '' }}"><a href="{{route('add-product')}}">{{ __('app.nav.add_medicine') }}</a></li>@endcan
+                        @can('view-outstock-products')<li class="{{ route_is('outstock') ? 'active' : '' }}"><a href="{{route('outstock')}}">{{ __('app.nav.out_stock') }}</a></li>@endcan
+                        @can('view-expired-products')<li class="{{ route_is('expired') ? 'active' : '' }}"><a href="{{route('expired')}}">{{ __('app.nav.expired') }}</a></li>@endcan
                     </ul>
                 </li>
                 @endcan
 
                 @can('view-purchase')
                 <li class="nav-item pcoded-hasmenu {{ route_is(('purchases')) || route_is(('add-purchase')) || route_is(('edit-purchase')) ? 'active active-cover' : '' }}">
-                    <a href="#"><i class="feather icon-star-o"></i> <span> Stock</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="feather icon-star-o"></i> <span> {{ __('app.nav.stock') }}</span> <span class="menu-arrow"></span></a>
                     <ul class="pcoded-submenu">
-                        <li class="{{ route_is('purchases') ? 'active active-cover' : '' }}"><a href="{{route('purchases')}}">Stock Purchase</a></li>
+                        <li class="{{ route_is('purchases') ? 'active active-cover' : '' }}"><a href="{{route('purchases')}}">{{ __('app.nav.stock_purchase') }}</a></li>
                         @can('create-purchase')
-                        <li class="{{ route_is('add-purchase') ? 'active active-cover' : '' }}"><a href="{{route('add-purchase')}}">Add Stock</a></li>
+                        <li class="{{ route_is('add-purchase') ? 'active active-cover' : '' }}"><a href="{{route('add-purchase')}}">{{ __('app.nav.add_stock') }}</a></li>
                         @endcan
                     </ul>
                 </li>
                 @endcan
                 @can('view-sales')
-                <li class="nav-item  {{ request()->is('sales*') ? 'active active-cover' : '' }}"><a href="{{route('sales')}}"><i class="feather icon-activity"></i> <span>Sales</span></a></li>
+                <li class="nav-item  {{ request()->is('sales*') ? 'active active-cover' : '' }}"><a href="{{route('sales')}}"><i class="feather icon-activity"></i> <span>{{ __('app.nav.sales') }}</span></a></li>
                 @endcan
                 @can('view-supplier')
                 <li class="nav-item pcoded-hasmenu {{ route_is(('suppliers')) || route_is(('add-supplier')) || route_is(('edit-supplier')) ? 'active active-cover' : '' }}">
-                    <a href="#"><i class="feather icon-user"></i> <span> Supplier</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="feather icon-user"></i> <span> {{ __('app.nav.supplier') }}</span> <span class="menu-arrow"></span></a>
                     <ul class="pcoded-submenu">
-                        <li class="{{ route_is('suppliers') ? 'active active-cover' : '' }}"><a href="{{route('suppliers')}}">Supplier</a></li>
-                        @can('create-supplier')<li class="{{ route_is('add-supplier') ? 'active active-cover' : '' }}"><a href="{{route('add-supplier')}}">Add Supplier</a></li>@endcan
+                        <li class="{{ route_is('suppliers') ? 'active active-cover' : '' }}"><a href="{{route('suppliers')}}">{{ __('app.nav.supplier') }}</a></li>
+                        @can('create-supplier')<li class="{{ route_is('add-supplier') ? 'active active-cover' : '' }}"><a href="{{route('add-supplier')}}">{{ __('app.nav.add_supplier') }}</a></li>@endcan
                     </ul>
                 </li>
                 @endcan
 
                 @can('view-reports')
                 <li class="nav-item pcoded-hasmenu {{ request()->is('reports*') ? 'active active-cover' : '' }}">
-                    <a href="#"><i class="feather icon-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="feather icon-document"></i> <span> {{ __('app.nav.reports') }}</span> <span class="menu-arrow"></span></a>
                     <ul class="pcoded-submenu">
-                        <li class="{{ route_is('reports') ? 'active active-cover' : '' }}"><a href="{{route('reports')}}">Reports</a></li>
+                        <li class="{{ route_is('reports') ? 'active active-cover' : '' }}"><a href="{{route('reports')}}">{{ __('app.nav.reports') }}</a></li>
                     </ul>
                 </li>
                 @endcan
 
                 @can('view-access-control')
                 <li class="nav-item pcoded-hasmenu {{ route_is(('permissions')) || route_is(('add-permissions')) || route_is(('edit-permissions')) || route_is(('roles'))  ? 'active active-cover' : '' }}">
-                    <a href="#"><i class="feather icon-lock"></i> <span> Access Control</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="feather icon-lock"></i> <span> {{ __('app.nav.access_control') }}</span> <span class="menu-arrow"></span></a>
                     <ul class="pcoded-submenu">
                         @can('view-permission')
-                        <li class="nav-item {{ route_is('permissions') ? 'active active-cover' : '' }}"><a href="{{route('permissions')}}">Permissions</a></li>
+                        <li class="nav-item {{ route_is('permissions') ? 'active active-cover' : '' }}"><a href="{{route('permissions')}}">{{ __('app.nav.permissions') }}</a></li>
                         @endcan
                         @can('view-role')
-                        <li class="nav-item {{ route_is('roles') ? 'active active-cover' : '' }}"><a href="{{route('roles')}}">Roles</a></li>
+                        <li class="nav-item {{ route_is('roles') ? 'active active-cover' : '' }}"><a href="{{route('roles')}}">{{ __('app.nav.roles') }}</a></li>
                         @endcan
                     </ul>
                 </li>
@@ -74,7 +74,7 @@
 
                 @can('view-users')
                 <li class=" nav-item  {{ route_is('users') ? 'active active-cover' : '' }}">
-                    <a href="{{route('users')}}"><i class="feather icon-users"></i> <span>Users</span></a>
+                    <a href="{{route('users')}}"><i class="feather icon-users"></i> <span>{{ __('app.nav.users') }}</span></a>
                 </li>
                 @endcan
 
@@ -83,7 +83,7 @@
 
                 @can('view-settings')
                 <li class=" nav-item  {{ route_is('settings') ? 'active active-cover' : '' }}">
-                    <a href="{{route('settings')}}"><i class="feather icon-users"></i> <span>Settings</span></a>
+                    <a href="{{route('settings')}}"><i class="feather icon-users"></i> <span>{{ __('app.nav.settings') }}</span></a>
                 </li>
                 @endcan
             </ul>
