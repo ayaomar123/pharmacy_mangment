@@ -4,7 +4,7 @@
             {{-- <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a> --}}
                 <a href="{{route('dashboard')}}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-			    <img class="logo" width="42" src="@if(!empty(AppSettings::get('logo'))) {{asset('storage/'.AppSettings::get('logo'))}} @else{{asset('img/logo1.png')}} @endif" alt="Logo">
+			    <img style="width: 6rem" class="logo" src="@if(!empty(AppSettings::get('logo'))) {{asset('storage/'.AppSettings::get('logo'))}} @else{{asset('img/logo1.png')}} @endif" alt="Logo">
             </a>
             <a href="#!" class="mob-toggler">
                 <i class="feather icon-more-vertical"></i>
