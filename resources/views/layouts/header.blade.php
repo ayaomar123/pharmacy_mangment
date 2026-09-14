@@ -17,7 +17,7 @@
                     <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
                     <div class="search-bar">
                         <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
-                        <button type="button" class="close" aria-label="Close">
+                        <button type="button" class="close" aria-label="{{ __('app.alerts.close') }}">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -92,6 +92,9 @@
             </ul>--}}
             <ul class="navbar-nav ml-auto">
                 <li>
+                    @include('layouts.language-switcher')
+                </li>
+                <li>
                     <div class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                             <i class="icon feather icon-bell"></i>
@@ -99,11 +102,11 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
-                                <h6 class="d-inline-block m-b-0">Notifications</h6>
+                                <h6 class="d-inline-block m-b-0">{{ __('app.header.notifications') }}</h6>
                                 @if (auth()->user()->unReadNotifications->count() > 0)
                                 <div class="float-right">
-                                    <a href="{{route('mark-as-read')}}" class="m-r-10">mark all as read</a>
-                                    <a href="#!">clear all</a>
+                                    <a href="{{route('mark-as-read')}}" class="m-r-10">{{ __('app.header.mark_all_as_read') }}</a>
+                                    <a href="#!">{{ __('app.header.clear_all') }}</a>
                                 </div>
                                 @endif
                             </div>
@@ -112,23 +115,23 @@
                                 @forelse (auth()->user()->unReadNotifications as $notification)
                                 @if ($loop->first)
                                 <li class="n-title">
-                                    <p class="m-b-0">Stock Alert</p>
+                                    <p class="m-b-0">{{ __('app.header.stock_alert') }}</p>
                                 </li>
                                 @endif
                                 <li class="notification">
                                     <a href="{{route('read')}}">
                                     <div class="media">
-                                        <img class="img-radius" alt="Product image" src="{{asset('storage/purchases/' .$notification->data['image'])}}">
+                                        <img class="img-radius" alt="{{ __('app.products.image_alt') }}" src="{{asset('storage/purchases/' .$notification->data['image'])}}">
                                         <div class="media-body">
                                             <p><strong>{{$notification->data['product_name']}} </strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>{{$notification->created_at->diffForHumans()}}</span></p>
-                                            <p>is out of stock {{$notification->data['quantity']}} left in quantity.</p>
+                                            <p>{{ __('app.header.out_of_stock_notice', ['quantity' => $notification->data['quantity']]) }}</p>
                                         </div>
                                     </div>
                                     </a>
                                 </li>
                             @empty
                             <li class="notification text-center">
-                                <strong class="text-center">No Message</strong>
+                                <strong class="text-center">{{ __('app.header.no_message') }}</strong>
                             </li>
                             @endforelse
                                 {{-- <li class="n-title">
@@ -175,7 +178,7 @@
                                 </li> --}}
                             </ul>
                             <div class="noti-footer">
-                                <a href="#!">show all</a>
+                                <a href="#!">{{ __('app.header.show_all') }}</a>
                             </div>
                         </div>
                     </div>
@@ -188,10 +191,10 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
 {{--                                <img src="{{ asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">--}}
-                                <img src="{{ asset('storage').'/'.auth()->user()->avatar ?? asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                                <img src="{{ asset('storage').'/'.auth()->user()->avatar ?? asset('assetss/assets/images/user/avatar-1.jpg') }}" class="img-radius" alt="{{ __('app.users.picture') }}">
                                 <span> {{ Auth::user()->name }}</span>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();" class="dud-logout" title="Logout">
+                                              document.getElementById('logout-form').submit();" class="dud-logout" title="{{ __('app.header.logout') }}">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -199,9 +202,9 @@
                                 </form>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="{{route('profile')}}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                <li><a href="{{route('profile')}}" class="dropdown-item"><i class="feather icon-user"></i> {{ __('app.header.profile') }}</a></li>
+                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> {{ __('app.header.my_messages') }}</a></li>
+                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> {{ __('app.header.lock_screen') }}</a></li>
                             </ul>
                         </div>
                     </div>

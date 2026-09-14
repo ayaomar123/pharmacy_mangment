@@ -7,17 +7,17 @@
 
 @push('page-header')
 <div class="col-sm-7 col-auto">
-	<h3 class="page-title">Backups</h3>
+	<h3 class="page-title">{{ __('app.backups.title') }}</h3>
 	<ul class="breadcrumb">
-		<li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-		<li class="breadcrumb-item active">App Backups</li>
+		<li class="breadcrumb-item"><a href="{{route('dashboard')}}">{{ __('app.common.dashboard') }}</a></li>
+		<li class="breadcrumb-item active">{{ __('app.backups.breadcrumb') }}</li>
 	</ul>
 </div>
 <div class="col-sm-5 col">
     <form action="{{route('backup.store')}}" method="post">
         @csrf
         @method("PUT")
-        <button class="btn btn-primary float-right mt-2" type="submit">Create Backup</button>
+        <button class="btn btn-primary float-right mt-2" type="submit">{{ __('app.backups.create') }}</button>
     </form>
 	{{-- <a href="#add_categories" data-toggle="modal" class="btn btn-primary float-right mt-2">Add Category</a> --}}
 </div>
@@ -30,15 +30,15 @@
         <div class="row align-items-center">
             <div class="col-md-9 col-auto">
                 <div class="page-header-title">
-                    <h3 class="m-b-10">Backups</h3>
+                    <h3 class="m-b-10">{{ __('app.backups.title') }}</h3>
                 </div>
             </div>
             <div class="col-sm-3 col">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                            Dashboard</a>
+                            {{ __('app.common.dashboard') }}</a>
                     </li>
-                    <li class="breadcrumb-item active">Create Backup</li>
+                    <li class="breadcrumb-item active">{{ __('app.backups.create') }}</li>
                 </ul>
             </div>
         </div>
@@ -49,11 +49,11 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5>Users</h5>
+                <h5>{{ __('app.backups.title') }}</h5>
                 <form action="{{route('backup.store')}}" method="post">
                     @csrf
                     @method("PUT")
-                    <button class="btn btn-primary float-right mt-2" type="submit">Create Backup</button>
+                    <button class="btn btn-primary float-right mt-2" type="submit">{{ __('app.backups.create') }}</button>
                 </form>
                 <div class="card-header-right">
                     <div class="btn-group card-option">
@@ -63,16 +63,14 @@
                         </button>
                         <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                             <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
-                                        maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                        Restore</span></a>
+                                        {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                        {{ __('app.card.restore') }}</span></a>
                             </li>
-                            <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                            class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                            class="feather icon-plus"></i> expand</span></a></li>
+                            <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a></li>
                             <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
-                                    reload</a></li>
+                                    {{ __('app.card.reload') }}</a></li>
                             <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                    remove</a></li>
+                                    {{ __('app.card.remove') }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,11 +80,11 @@
 					<table id="category-table" class="datatable table table-striped table-bordered table-hover table-center mb-0">
 						<thead>
 							<tr style="boder:1px solid black;">
-                                <th>ID</th>
-                                <th>Disk</th>
-                                <th>Backup Date</th>
-                                <th>File Size</th>
-								<th class="text-center action-btn">Actions</th>
+                                <th>{{ __('app.backups.id') }}</th>
+                                <th>{{ __('app.backups.disk') }}</th>
+                                <th>{{ __('app.backups.date') }}</th>
+                                <th>{{ __('app.backups.file_size') }}</th>
+								<th class="text-center action-btn">{{ __('app.common.actions') }}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -100,7 +98,7 @@
                                     <div class="actions">
                                         @if ($b['download'])
                                         <a class="float-left" href="{{ route('backup.download') }}?disk={{ $b['disk'] }}&path={{ urlencode($b['file_path']) }}&file_name={{ urlencode($b['file_name']) }}">
-                                            <button title="download backup" class="btn btn-primary" >
+                                            <button title="{{ __('app.backups.download') }}" class="btn btn-primary" >
                                                 <i class="fe fe-download"></i>
                                             </button>
                                         </a>
@@ -108,7 +106,7 @@
                                         <form action="{{route('backup.destroy',$b['file_name'])}}?disk={{ $b['disk'] }}" method="post">
                                             @csrf
                                             @method("DELETE")
-                                            <button title="delete backup" class="btn btn-danger" type="submit">
+                                            <button title="{{ __('app.backups.delete') }}" class="btn btn-danger" type="submit">
                                                 <i class="fe fe-trash"></i>
                                             </button>
                                         </form>
@@ -127,7 +125,7 @@
 
 
 <!-- Delete Modal -->
-<x-modals.delete :route="'categories'" :title="'Category'" />
+<x-modals.delete :route="'categories'" :title="__('app.entity.category')" />
 <!-- /Delete Modal -->
 @endsection
 

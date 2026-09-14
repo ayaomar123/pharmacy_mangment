@@ -61,7 +61,7 @@ class SalesController extends Controller
                 ]);
 
                 $notification = array(
-                    'success' => "Medicine sold successfully!!",
+                    'success' => __('app.messages.medicine_sold'),
                 );
 
                 if ($new_quantity <= 1 || $new_quantity == 0) {
@@ -69,12 +69,12 @@ class SalesController extends Controller
                     event(new MedicineOutStock($purchased_item));
                     // end of notification
                     $notification = array(
-                        'error' => "Medicine is running out of stock!!!",
+                        'error' => __('app.messages.medicine_running_out'),
                     );
                 }
         }elseif ($request->quantity > $purchased_item->quantity) {
                 $notification = array(
-                    'error' => "Medicine request quantity can not be grater than available quantity!!!  " . ' Available Quantity is ' . ($purchased_item->quantity),
+                    'error' => __('app.messages.quantity_exceeds_stock', ['quantity' => $purchased_item->quantity]),
                 );
 
                 if (!empty($request->edit_id)) {
@@ -93,7 +93,7 @@ class SalesController extends Controller
         $sale = Sales::find($request->id);
         $sale->delete();
         $notification = array(
-            'message' => "Sales has been deleted",
+            'message' => __('app.messages.sales_deleted'),
             'alert-type' => 'success'
         );
         return back()->with($notification);

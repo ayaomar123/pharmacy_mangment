@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ locale_direction() }}">
 
 <head>
 
@@ -16,6 +16,10 @@
 
     <!-- vendor css -->
     <link rel="stylesheet" href="{{ asset('assetss/assets/css/style.css') }}">
+    @if (is_rtl())
+        <!-- right-to-left overrides, must stay after the base theme stylesheets -->
+        <link rel="stylesheet" href="{{ asset('assetss/assets/css/layout-rtl.css') }}">
+    @endif
 
 
 
@@ -33,12 +37,12 @@
                         <!-- {{ asset('img/logo1.png') }} -->
                         <img src="@if ($logo) {{ asset('storage') }}/{{ $logo }}@else{{ asset('img/logo1.png') }} @endif"
                             width="200" alt="" class="img-fluid mb-4">
-                        <h4 class="mb-3 f-w-400">Signin</h4>
+                        <h4 class="mb-3 f-w-400">{{ __('app.auth.signin') }}</h4>
                         <hr>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group mb-3">
-                                <input id="email" type="email" placeholder="Email"
+                                <input id="email" type="email" placeholder="{{ __('app.common.email') }}"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                     value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -49,7 +53,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-4">
-                                <input id="password" placeholder="Password" type="password"
+                                <input id="password" placeholder="{{ __('app.common.password') }}" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="current-password">
 
@@ -62,13 +66,17 @@
                             <div class="custom-control custom-checkbox text-left mb-4 mt-2">
                                 <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1"
                                     {{ old('remember') ? 'checked' : '' }}>
-                                <label class="custom-control-label" for="customCheck1">Save credentials.</label>
+                                <label class="custom-control-label" for="customCheck1">{{ __('app.auth.save_credentials') }}</label>
                             </div>
-                            <button type="submit" class="btn btn-block btn-primary mb-4">Signin</button>
+                            <button type="submit" class="btn btn-block btn-primary mb-4">{{ __('app.auth.signin') }}</button>
                         </form>
                         <hr>
-                        <p class="mb-0 text-muted">Forgot password? <a href="{{ route('password.request') }}"
-                                class="f-w-400">Reset</a></p>
+                        <p class="mb-0 text-muted">{{ __('app.auth.forgot_password') }} <a
+                                href="{{ route('password.request') }}"
+                                class="f-w-400">{{ __('app.auth.reset') }}</a></p>
+                        <div class="mt-3 d-flex justify-content-center">
+                            @include('layouts.language-switcher')
+                        </div>
                     </div>
                 </div>
             </div>

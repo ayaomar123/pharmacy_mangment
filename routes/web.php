@@ -12,6 +12,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\NotificationController;
@@ -23,6 +24,10 @@ use App\Http\Controllers\NotificationController;
 | password.update).
 */
 Auth::routes(['register' => false]);
+
+// Language switcher. Available to guests too so the sign-in screen can be
+// translated before the user authenticates.
+Route::get('lang/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');

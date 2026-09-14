@@ -7,10 +7,10 @@
 
 @push('page-header')
     <div class="col-sm-12">
-        <h3 class="page-title">Expired</h3>
+        <h3 class="page-title">{{ __('app.products.expired_title') }}</h3>
         <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('products') }}">Products</a></li>
-            <li class="breadcrumb-item active">Expired</li>
+            <li class="breadcrumb-item"><a href="{{ route('products') }}">{{ __('app.nav.medicines') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('app.nav.expired') }}</li>
         </ul>
     </div>
 @endpush
@@ -27,13 +27,13 @@
                             class="table table-striped table-bordered table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Brand Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Discount</th>
-                                    <th>Expire</th>
-                                    <th class="action-btn">Action</th>
+                                    <th>{{ __('app.products.brand_name') }}</th>
+                                    <th>{{ __('app.common.category') }}</th>
+                                    <th>{{ __('app.common.price') }}</th>
+                                    <th>{{ __('app.common.quantity') }}</th>
+                                    <th>{{ __('app.common.discount') }}</th>
+                                    <th>{{ __('app.common.expire') }}</th>
+                                    <th class="action-btn">{{ __('app.common.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,7 +45,7 @@
                                                     <span class="avatar avatar-sm mr-2">
                                                         <img class="avatar-img"
                                                             src="{{ asset('storage/products/' . $product->image) }}"
-                                                            alt="product image">
+                                                            alt="{{ __('app.products.image_alt') }}">
                                                     </span>
                                                 @endif
                                                 {{ $product->name }}
@@ -55,16 +55,16 @@
                                         <td>{{ AppSettings::get('app_currency', '$') }}{{ $product->price }}</td>
                                         <td>{{ $product->quantity }}</td>
                                         <td>{{ $product->discount }}%</td>
-                                        <td><span class="btn btn-sm btn-danger">THE PRODUCT IS EXPIRED</span></td>
+                                        <td><span class="btn btn-sm btn-danger">{{ __('app.products.expired_badge') }}</span></td>
                                         <td>
                                             <div class="actions">
                                                 <a class="btn btn-sm btn-info"
                                                     href="{{ route('edit-product', $product) }}">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> {{ __('app.common.edit') }}
                                                 </a>
                                                 <a data-id="{{ $product->id }}" href="javascript:void(0);"
                                                     class="btn btn-sm btn-danger deletebtn" data-toggle="modal">
-                                                    <i class="fe fe-trash"></i> Delete
+                                                    <i class="fe fe-trash"></i> {{ __('app.common.delete') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -82,7 +82,7 @@
     </div>
 
     <!-- Delete Modal -->
-    <x-modals.delete :route="'products'" :title="'Expired Product'" />
+    <x-modals.delete :route="'products'" :title="__('app.entity.expired_product')" />
     <!-- /Delete Modal -->
 @endsection
 

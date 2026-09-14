@@ -42,12 +42,12 @@ class UserController extends Controller
                 ]);
                 $user->assignRole($request->role);
                 $notification =array(
-                    'message'=>"User has been added!!!",
+                    'message' => __('app.messages.user_added'),
                     'alert-type'=>'success'
                 );
             } catch (\Throwable $th) {
                 $notifications = array(
-                    'message' => "Opps!! Something got wrong, Please check and try again",
+                    'message' => __('app.messages.generic_error'),
                     'alert-type' => 'error',
                 );
             }
@@ -83,12 +83,12 @@ class UserController extends Controller
                     'avatar'=>$request->avatar,
                 ]);
                 $notification =array(
-                    'message'=>"User profile has been updated !!!",
+                    'message' => __('app.messages.profile_updated'),
                     'alert-type'=>'success'
                 );
             } catch (\Throwable $th) {
                 $notifications = array(
-                    'message' => "Opps!! Something got wrong, Please check and try again",
+                    'message' => __('app.messages.generic_error'),
                     'alert-type' => 'error',
                 );
             }
@@ -105,14 +105,14 @@ class UserController extends Controller
         if (password_verify($request->old_password,auth()->user()->password)){
             auth()->user()->update(['password'=>Hash::make($request->password)]);
             $notification = array(
-                'message'=>"User password updated successfully!!!",
+                'message' => __('app.messages.password_updated'),
                 'alert-type'=>'success'
             );
             $logout = auth()->logout();
             return back()->with($notification,$logout);
         }else{
             $notification = array(
-                'message'=>"Old Password do not match!!!",
+                'message' => __('app.messages.old_password_mismatch'),
                 'alert-type'=>'danger'
             );
             return back()->with($notification);
@@ -142,7 +142,7 @@ class UserController extends Controller
         ]);
         $user->assignRole($request->role);
         $notification =array(
-            'message'=>"User has been updated!!!",
+            'message' => __('app.messages.user_updated'),
             'alert-type'=>'success'
         );
         return back()->with($notification);
@@ -154,14 +154,14 @@ class UserController extends Controller
         $user = User::find($request->id);
         if($user->hasRole('super-admin')){
             $notification=array(
-                'message'=>"Super admin cannot be deleted",
+                'message' => __('app.messages.super_admin_undeletable'),
                 'alert-type'=>'warning',
             );
             return back()->with($notification);
         }
         $user->delete();
         $notification=array(
-            'message'=>"User has been deleted",
+            'message' => __('app.messages.user_deleted'),
             'alert-type'=>'success',
         );
         return back()->with($notification);

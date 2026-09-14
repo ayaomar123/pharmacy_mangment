@@ -30,7 +30,7 @@ class RoleController extends Controller
         $permissions = $request->permission;
         $role->syncPermissions($permissions);
         $notification = array(
-            'message'=>"Role Created Successfully!!",
+            'message' => __('app.messages.role_created'),
             'alert-type'=>"success"
         );
         return back()->with($notification);
@@ -50,7 +50,7 @@ class RoleController extends Controller
         $permissions = $request->permission;
         $role->syncPermissions($permissions);
         $notification = array(
-            'message'=>"Role Updated Successfully!!",
+            'message' => __('app.messages.role_updated'),
             'alert-type'=>"success"
         );
         return back()->with($notification);
@@ -62,7 +62,7 @@ class RoleController extends Controller
         $role = Role::find($request->id);
         $role->delete();
         $notification = array(
-            'message'=>"Role deleted successfully!!.",
+            'message' => __('app.messages.role_deleted'),
             'alert-type'=>'success'
         );
         return back()->with($notification);

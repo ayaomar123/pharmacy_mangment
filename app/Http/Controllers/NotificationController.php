@@ -10,7 +10,7 @@ class NotificationController extends Controller
     public function markAsRead(){
         auth()->user()->unreadNotifications->markAsRead();
         $notification = array(
-            'message'=>"Notifications marked as read",
+            'message' => __('app.messages.notifications_marked_read'),
             'alert-type'=>'success'
         );
         return back()->with($notification);
@@ -19,7 +19,7 @@ class NotificationController extends Controller
     public function read(){
         auth()->user()->unreadNotifications->markAsRead();
         $notification = array(
-            'message'=>"Notification marked as read",
+            'message' => __('app.messages.notification_marked_read'),
             'alert-type'=>'success'
         );
         return back()->with($notification);
@@ -30,7 +30,7 @@ class NotificationController extends Controller
     {
         auth()->user()->notifications()->delete();
         $notification = array(
-            'message'=>"Notification has been deleted",
+            'message' => __('app.messages.notification_deleted'),
             'alert-type'=>'success'
         );
         return back()->with($notification);

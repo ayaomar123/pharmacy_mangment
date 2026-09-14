@@ -5,8 +5,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="acc_title">Delete {{$title}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="acc_title">{{ __('app.delete_modal.title', ['entity' => $title]) }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('app.alerts.close') }}">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -14,12 +14,12 @@
                 @csrf
                 @method("DELETE")
                 <div class="modal-body">
-                    <p id="acc_msg">Are you sure you want to delete ?</p>
+                    <p id="acc_msg">{{ __('app.delete_modal.confirm') }}</p>
                     <input type="hidden" value="{{ $category->id }}" name="id" id="delete_id">
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success si_accept_confirm">Yes</button>
-                    <button type="button" class="btn btn-danger si_accept_cancel" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success si_accept_confirm">{{ __('app.common.yes') }}</button>
+                    <button type="button" class="btn btn-danger si_accept_cancel" data-dismiss="modal">{{ __('app.common.cancel') }}</button>
                 </div>
             </form>
         </div>

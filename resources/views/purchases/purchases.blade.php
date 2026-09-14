@@ -7,15 +7,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h3 class="m-b-10">Purchase Stocks</h3>
+                        <h3 class="m-b-10">{{ __('app.purchases.title') }}</h3>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                                Dashboard</a>
+                                {{ __('app.common.dashboard') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Purchase Stocks</li>
+                        <li class="breadcrumb-item active">{{ __('app.purchases.title') }}</li>
                     </ul>
                 </div>
             </div>
@@ -27,9 +27,9 @@
             <!-- Recent Orders -->
             <div class="card">
                 <div class="card-header">
-                    <h5>Purchase Stocks</h5>
+                    <h5>{{ __('app.purchases.title') }}</h5>
                     <div class="card-header-right">
-                        <a href="{{ route('add-purchase') }}" class="btn btn-primary float-right">Add New</a>
+                        <a href="{{ route('add-purchase') }}" class="btn btn-primary float-right">{{ __('app.common.add_new') }}</a>
                         <div class="btn-group card-option">
                             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -37,17 +37,15 @@
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a>
                                 </li>
                                 <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,13 +55,13 @@
                         <table id="datatable-export" class="table table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Medicine Name</th>
-                                    <th>Medicine Category</th>
-                                    <th>Purchase Price</th>
-                                    <th>Quantity</th>
-                                    <th>Supplier</th>
-                                    <th>Expire Date</th>
-                                    <th class="action-btn">Action</th>
+                                    <th>{{ __('app.products.name') }}</th>
+                                    <th>{{ __('app.purchases.medicine_category') }}</th>
+                                    <th>{{ __('app.purchases.purchase_price') }}</th>
+                                    <th>{{ __('app.common.quantity') }}</th>
+                                    <th>{{ __('app.common.supplier') }}</th>
+                                    <th>{{ __('app.common.expire_date') }}</th>
+                                    <th class="action-btn">{{ __('app.common.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,7 +72,7 @@
                                                 <span class="avatar avatar-sm mr-2">
                                                     <img class="avatar-img" width="30"
                                                         src="{{ asset('storage/purchases/' . $purchase->image) }}"
-                                                        alt="product image">
+                                                        alt="{{ __('app.products.image_alt') }}">
                                                 </span>
                                             @endif
                                             {{ $purchase->name }}
@@ -88,11 +86,11 @@
                                             <div class="actions">
                                                 <a class="btn btn-sm btn-info"
                                                     href="{{ route('edit-purchase', $purchase) }}">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> {{ __('app.common.edit') }}
                                                 </a>
                                                 <a data-id="{{ $purchase->id }}" href="javascript:void(0);"
                                                     class="btn btn-sm btn-danger deletebtn" data-toggle="modal">
-                                                    <i class="fe fe-trash"></i> Delete
+                                                    <i class="fe fe-trash"></i> {{ __('app.common.delete') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -108,7 +106,7 @@
         </div>
     </div>
     <!-- Delete Modal -->
-    <x-modals.delete :route="'purchases'" :title="'Purchase'" />
+    <x-modals.delete :route="'purchases'" :title="__('app.entity.purchase')" />
     <!-- /Delete Modal -->
 @endsection
 

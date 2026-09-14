@@ -97,6 +97,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Available Locales
+    |--------------------------------------------------------------------------
+    |
+    | The locales the user is allowed to switch between, keyed by locale code
+    | with the native language name as the label. This list is the allow-list
+    | used by the SetLocale middleware and by the language switcher, so a
+    | locale that is not listed here can never be activated from a request.
+    |
+    | Locales listed in "rtl_locales" are rendered right-to-left.
+    |
+    */
+
+    'available_locales' => [
+        'en' => 'English',
+        'ar' => 'العربية',
+    ],
+
+    'rtl_locales' => ['ar'],
+
+    /*
+    |--------------------------------------------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |

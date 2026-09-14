@@ -4,19 +4,19 @@
     <div class="row form-row">
         <div class="col-12">
             <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" name="name" class="form-control edit_name" placeholder="name">
+                <label>{{ __('app.common.full_name') }}</label>
+                <input type="text" name="name" class="form-control edit_name" placeholder="{{ __('app.common.name') }}">
             </div>
         </div>
         <div class="col-12">
             <div class="form-group">
-                <label>Email</label>
+                <label>{{ __('app.common.email') }}</label>
                 <input type="email" name="email" class="form-control edit_email">
             </div>
         </div>
         <div class="col-12">
             <div class="form-group">
-                <label>Role</label>
+                <label>{{ __('app.common.role') }}</label>
                 <div class="form-group">
                     <select class="select2 form-select form-control edit_role" name="role">
                         @foreach ($roles as $role)
@@ -30,7 +30,7 @@
            <div class="row">
                <div class="col-md-8">
                 <div class="form-group">
-                    <label>Picture</label>
+                    <label>{{ __('app.common.picture') }}</label>
                     <input type="file" name="avatar">
                 </div>
                </div>
@@ -43,18 +43,18 @@
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>{{ __('app.common.password') }}</label>
                         <input type="password" name="password" class="form-control">
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <label>Confirm Password</label>
+                        <label>{{ __('app.common.confirm_password') }}</label>
                         <input type="password" name="password_confirmation" class="form-control">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+    <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
 </form>

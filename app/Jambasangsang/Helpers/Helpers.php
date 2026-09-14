@@ -67,3 +67,21 @@ if(!function_exists('importCsv')){
     }
 }
 
+
+if(!function_exists('is_rtl')){
+    /**
+     * Whether the given locale (the active one by default) is written right-to-left.
+     */
+    function is_rtl($locale = null){
+        return in_array($locale ?: app()->getLocale(), config('app.rtl_locales', []), true);
+    }
+}
+
+if(!function_exists('locale_direction')){
+    /**
+     * The text direction ("rtl" or "ltr") of the given locale, for the dir attribute.
+     */
+    function locale_direction($locale = null){
+        return is_rtl($locale) ? 'rtl' : 'ltr';
+    }
+}

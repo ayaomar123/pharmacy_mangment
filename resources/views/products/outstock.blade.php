@@ -7,10 +7,10 @@
 
 @push('page-header')
     <div class="col-sm-12">
-        <h3 class="page-title">Outstock</h3>
+        <h3 class="page-title">{{ __('app.products.outstock_title') }}</h3>
         <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('products') }}">Medicine</a></li>
-            <li class="breadcrumb-item active">Outstock</li>
+            <li class="breadcrumb-item"><a href="{{ route('products') }}">{{ __('app.nav.medicines') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('app.nav.out_stock') }}</li>
         </ul>
     </div>
 @endpush
@@ -21,15 +21,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h3 class="m-b-10"> OutStock</h3>
+                        <h3 class="m-b-10">{{ __('app.products.outstock_title') }}</h3>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('products') }}"><i class="feather icon-drug"></i>
-                                Medicine</a>
+                                {{ __('app.common.medicine') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">OutStock</li>
+                        <li class="breadcrumb-item active">{{ __('app.nav.out_stock') }}</li>
                     </ul>
                 </div>
             </div>
@@ -42,9 +42,9 @@
             <!-- Recent Orders -->
             <div class="card">
                 <div class="card-header">
-                    <h5>Edit Purchase</h5>
+                    <h5>{{ __('app.products.outstock_title') }}</h5>
                     <div class="card-header-right">
-                        <a href="{{ route('purchases') }}" class="btn btn-primary float-right">Back</a>
+                        <a href="{{ route('purchases') }}" class="btn btn-primary float-right">{{ __('app.common.back') }}</a>
                         <div class="btn-group card-option">
                             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -52,17 +52,15 @@
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a>
                                 </li>
                                 <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,13 +70,13 @@
                         <table id="datatable-export" class=" table table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Brand Name</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Discount</th>
-                                    <th>Expire</th>
-                                    <th class="action-btn">Action</th>
+                                    <th>{{ __('app.products.brand_name') }}</th>
+                                    <th>{{ __('app.common.category') }}</th>
+                                    <th>{{ __('app.common.price') }}</th>
+                                    <th>{{ __('app.common.quantity') }}</th>
+                                    <th>{{ __('app.common.discount') }}</th>
+                                    <th>{{ __('app.common.expire') }}</th>
+                                    <th class="action-btn">{{ __('app.common.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,7 +87,7 @@
                                                 <span class="avatar avatar-sm mr-2">
                                                     <img class="avatar-img" width="30"
                                                         src="{{ asset('storage/products/' . $product->image) }}"
-                                                        alt="product image">
+                                                        alt="{{ __('app.products.image_alt') }}">
                                                 </span>
                                             @endif
                                             {{ $product->name }}
@@ -107,11 +105,11 @@
                                             <div class="actions">
                                                 <a class="btn btn-sm btn-info"
                                                     href="{{ route('edit-purchase', $product->id) }}">
-                                                    <i class="fe fe-pencil"></i> Edit
+                                                    <i class="fe fe-pencil"></i> {{ __('app.common.edit') }}
                                                 </a>
                                                 <a data-id="{{ $product->id }}" href="javascript:void(0);"
                                                     class="btn btn-sm btn-danger deletebtn" data-toggle="modal">
-                                                    <i class="fe fe-trash"></i> Delete
+                                                    <i class="fe fe-trash"></i> {{ __('app.common.delete') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -129,7 +127,7 @@
     </div>
 
     <!-- Delete Modal -->
-    <x-modals.delete :route="'products'" :title="'OutStock Product'" />
+    <x-modals.delete :route="'products'" :title="__('app.entity.outstock_product')" />
     <!-- /Delete Modal -->
 @endsection
 

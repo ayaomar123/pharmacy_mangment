@@ -5,9 +5,9 @@
 
 @push('page-header')
 <div class="col-sm-12">
-	<h3 class="page-title">Welcome {{auth()->user()->name}}!</h3>
+	<h3 class="page-title">{{ __('app.dashboard.welcome', ['name' => auth()->user()->name]) }}</h3>
 	<ul class="breadcrumb">
-		<li class="breadcrumb-item active">Dashboard</li>
+		<li class="breadcrumb-item active">{{ __('app.common.dashboard') }}</li>
 	</ul>
 </div>
 @endpush
@@ -27,7 +27,7 @@
 						</div>
 					</div>
 					<div class="dash-widget-info">
-						<h6 class="text-muted">Today Sales Cash</h6>
+						<h6 class="text-muted">{{ __('app.dashboard.today_sales_cash') }}</h6>
 						<div class="progress progress-sm">
 							<div class="progress-bar bg-primary w-50"></div>
 						</div>
@@ -48,7 +48,7 @@
 					</div>
 					<div class="dash-widget-info">
 						
-						<h6 class="text-muted">Product Categories</h6>
+						<h6 class="text-muted">{{ __('app.dashboard.product_categories') }}</h6>
 						<div class="progress progress-sm">
 							<div class="progress-bar bg-success w-50"></div>
 						</div>
@@ -69,7 +69,7 @@
 					</div>
 					<div class="dash-widget-info">
 						
-						<h6 class="text-muted">Expired Products</h6>
+						<h6 class="text-muted">{{ __('app.dashboard.expired_products') }}</h6>
 						<div class="progress progress-sm">
 							<div class="progress-bar bg-danger w-50"></div>
 						</div>
@@ -90,7 +90,7 @@
 					</div>
 					<div class="dash-widget-info">
 						
-						<h6 class="text-muted">System Users</h6>
+						<h6 class="text-muted">{{ __('app.dashboard.system_users') }}</h6>
 						<div class="progress progress-sm">
 							<div class="progress-bar bg-warning w-50"></div>
 						</div>
@@ -104,17 +104,17 @@
 		
 			<div class="card card-table">
 				<div class="card-header">
-					<h4 class="card-title ">Today Sales</h4>
+					<h4 class="card-title ">{{ __('app.dashboard.today_sales') }}</h4>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-hover table-center mb-0">
 							<thead>
 								<tr>
-									<th>Medicine</th>
-									<th>Quantity</th>
-									<th>Total Price</th>
-									<th>Date</th>
+									<th>{{ __('app.common.medicine') }}</th>
+									<th>{{ __('app.common.quantity') }}</th>
+									<th>{{ __('app.common.total_price') }}</th>
+									<th>{{ __('app.common.date') }}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -145,7 +145,7 @@
 			<!-- Pie Chart -->
 			<div class="card card-chart">
 				<div class="card-header">
-					<h4 class="card-title">Resources Sum</h4>
+					<h4 class="card-title">{{ __('app.dashboard.resources_sum') }}</h4>
 				</div>
 				<div class="card-body">
 					<div style="width:65%;">

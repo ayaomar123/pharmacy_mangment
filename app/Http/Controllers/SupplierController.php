@@ -49,12 +49,12 @@ class SupplierController extends Controller
                 'description' => $request->description,
             ]);
             $notification = array(
-                'message' => "Supplier has been added",
+                'message' => __('app.messages.supplier_added'),
                 'alert-type' => 'success',
             );
         } catch (\Throwable $th) {
             $notifications = array(
-                'message' => "Opps!! Something got wrong, Please check and try again",
+                'message' => __('app.messages.generic_error'),
                 'alert-type' => 'error',
             );
         }
@@ -90,12 +90,12 @@ class SupplierController extends Controller
         try {
             $supplier->update($request->all());
             $notification = array(
-                'message' => "Supplier has been updated",
+                'message' => __('app.messages.supplier_updated'),
                 'alert-type' => 'success',
             );
         } catch (\Throwable $th) {
             $notifications = array(
-                'message' => "Opps!! Something got wrong, Please check and try again",
+                'message' => __('app.messages.generic_error'),
                 'alert-type' => 'error',
             );
         }
@@ -107,7 +107,7 @@ class SupplierController extends Controller
         $supplier = Supplier::find($request->id);
         $supplier->delete();
         $notification = array(
-            'message' => "Supplier has been deleted",
+            'message' => __('app.messages.supplier_deleted'),
             'alert-type' => 'success',
         );
         return back()->with($notification);

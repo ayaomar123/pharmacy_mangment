@@ -12,15 +12,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h3 class="m-b-10">Profile</h3>
+                        <h3 class="m-b-10">{{ __('app.profile.title') }}</h3>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                                Dashboard</a>
+                                {{ __('app.common.dashboard') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Profile</li>
+                        <li class="breadcrumb-item active">{{ __('app.profile.title') }}</li>
                     </ul>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="card-body row align-items-center">
                     <div class="col-auto profile-image">
                         <a href="#">
-                            <img class="rounded-circle" width="90" alt="User Image"
+                            <img class="rounded-circle" width="90" alt="{{ __('app.users.picture') }}"
                                 src="{{ asset('img/medical-team.png') }}">
                         </a>
                     </div>
@@ -41,9 +41,9 @@
                         <br>
                         <h6 class="text-muted">{{ auth()->user()->email }}</h6>
                         <br>
-                        TimeZone: <h5>{{ date_default_timezone_get() }}</h5>
+                        {{ __('app.profile.timezone') }}: <h5>{{ date_default_timezone_get() }}</h5>
                         <br>
-                        Current Date and Time: <h5>{{ date('d M,Y h:i:s a', time()) }}</h5>
+                        {{ __('app.profile.current_date_time') }}: <h5>{{ date('d M,Y h:i:s a', time()) }}</h5>
                     </div>
 
                 </div>
@@ -51,10 +51,10 @@
             <div class="profile-menu">
                 <ul class="nav nav-tabs nav-tabs-solid">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#per_details_tab">About</a>
+                        <a class="nav-link active" data-toggle="tab" href="#per_details_tab">{{ __('app.profile.about') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#password_tab">Password</a>
+                        <a class="nav-link" data-toggle="tab" href="#password_tab">{{ __('app.common.password') }}</a>
                     </li>
                 </ul>
             </div>
@@ -68,8 +68,8 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Personal Details</h5>
-                                    <a class="edit-link" href="#!"><i class="fa fa-edit mr-1"></i>Edit</a>
+                                    <h5>{{ __('app.profile.personal_details') }}</h5>
+                                    <a class="edit-link" href="#!"><i class="fa fa-edit mr-1"></i>{{ __('app.common.edit') }}</a>
                                     <div class="card-header-right">
                                         <div class="btn-group card-option">
                                             <button type="button" class="btn dropdown-toggle btn-icon"
@@ -77,22 +77,17 @@
                                                 <i class="feather icon-more-horizontal"></i>
                                             </button>
                                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                                <li class="dropdown-item full-card"><a href="#!"><span><i
-                                                                class="feather icon-maximize"></i>
-                                                            maximize</span><span style="display:none"><i
-                                                                class="feather icon-minimize"></i>
-                                                            Restore</span></a>
+                                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                                            {{ __('app.card.restore') }}</span></a>
                                                 </li>
-                                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                                class="feather icon-minus"></i> collapse</span><span
+                                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span
                                                             style="display:none"><i class="feather icon-plus"></i>
-                                                            expand</span></a></li>
-                                                <li class="dropdown-item reload-card"><a href="#!"><i
-                                                            class="feather icon-refresh-cw"></i>
-                                                        reload</a></li>
-                                                <li class="dropdown-item close-card"><a href="#!"><i
-                                                            class="feather icon-trash"></i>
-                                                        remove</a></li>
+                                                            {{ __('app.card.expand') }}</span></a></li>
+                                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                                        {{ __('app.card.reload') }}</a></li>
+                                                <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
+                                                        {{ __('app.card.remove') }}</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -101,20 +96,20 @@
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="row">
-                                                <p class="col-sm-2 text-muted  mb-0 mb-sm-3">Name</p>
+                                                <p class="col-sm-2 text-muted  mb-0 mb-sm-3">{{ __('app.common.name') }}</p>
                                                 <p class="col-sm-10">{{ auth()->user()->avatar }}</p>
                                             </div>
 
                                             <div class="row">
-                                                <p class="col-sm-2 text-muted  mb-0 mb-sm-3">Email ID</p>
+                                                <p class="col-sm-2 text-muted  mb-0 mb-sm-3">{{ __('app.profile.email_id') }}</p>
                                                 <p class="col-sm-10">{{ auth()->user()->email }}</p>
                                             </div>
 
                                             <div class="row">
-                                                <p class="col-sm-2 text-muted  mv-0 mb-sm-3">User Role</p>
+                                                <p class="col-sm-2 text-muted  mv-0 mb-sm-3">{{ __('app.profile.user_role') }}</p>
                                                 <p class="col-sm-10">
                                                     @foreach (auth()->user()->getRoleNames() as $role)
-                                                        {{ $role == 'super-admin' ? 'Supper Admin' : $role }}
+                                                        {{ $role == 'super-admin' ? __('app.profile.super_admin') : $role }}
                                                     @endforeach
                                                 </p>
                                             </div>
@@ -127,22 +122,22 @@
                                                 <div class="row form-row">
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label>Full Name</label>
+                                                            <label>{{ __('app.common.full_name') }}</label>
                                                             <input class="form-control" name="name" type="text"
-                                                                value="{{ auth()->user()->name }}" placeholder="Full Name">
+                                                                value="{{ auth()->user()->name }}" placeholder="{{ __('app.common.full_name') }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label>email</label>
+                                                            <label>{{ __('app.common.email') }}</label>
                                                             <input class="form-control" name="email" type="text"
-                                                                value="{{ auth()->user()->email }}" placeholder="Email">
+                                                                value="{{ auth()->user()->email }}" placeholder="{{ __('app.common.email') }}">
                                                         </div>
                                                     </div>
                                                     {{-- @can('update-role')
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>Role</label>
+                                            <label>{{ __('app.common.role') }}</label>
                                             <select class="form-control select edit_role" name="role">
                                                 @foreach ($roles as $role)
                                                     <option value="{{$role->name}}">{{$role->name}}</option>
@@ -153,15 +148,14 @@
                                     @endcan --}}
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label>User Avatar</label>
+                                                            <label>{{ __('app.users.avatar') }}</label>
                                                             <input type="file" value="{{ auth()->user()->avatar }}"
                                                                 class="form-control" name="avatar">
                                                         </div>
                                                     </div>
 
                                                 </div>
-                                                <button type="submit" class="btn btn-primary btn-block">Save
-                                                    Changes</button>
+                                                <button type="submit" class="btn btn-primary btn-block">{{ __('app.common.save_changes') }}</button>
                                             </form>
                                         </div>
                                     </div>
@@ -179,25 +173,25 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Change Password</h5>
+                            <h5 class="card-title">{{ __('app.profile.change_password') }}</h5>
                             <div class="row">
                                 <div class="col-md-10 col-lg-6">
                                     <form method="POST" action="{{ route('update-password') }}">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group">
-                                            <label>Old Password</label>
+                                            <label>{{ __('app.common.old_password') }}</label>
                                             <input type="password" name="old_password" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>New Password</label>
+                                            <label>{{ __('app.common.new_password') }}</label>
                                             <input type="password" name="password" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Confirm Password</label>
+                                            <label>{{ __('app.common.confirm_password') }}</label>
                                             <input type="password" name="password_confirmation" class="form-control">
                                         </div>
-                                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                                        <button class="btn btn-primary" type="submit">{{ __('app.common.save_changes') }}</button>
                                     </form>
                                 </div>
                             </div>

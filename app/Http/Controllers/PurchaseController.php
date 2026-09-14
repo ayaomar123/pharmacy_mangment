@@ -60,12 +60,12 @@ class PurchaseController extends Controller
                 'image' => $imageName,
             ]);
             $notifications = array(
-                'success' =>  $purchase->name . '  ' ." added successfully!",
+                'success' => __('app.messages.stock_added', ['name' => $purchase->name]),
                 // 'alert-type' => 'success',
             );
         } catch (\Throwable $th) {
             $notifications = array(
-                'error' => "Opps!! Something got wrong, Please check and try again",
+                'error' => __('app.messages.generic_error'),
                 // 'alert-type' => 'error',
             );
         }
@@ -115,11 +115,11 @@ class PurchaseController extends Controller
                 'image' => $imageName??$request->update_image,
             ]);
             $notifications = array(
-                'success' =>  $purchase->name . '  ' ." updated successfully!",
+                'success' => __('app.messages.stock_updated', ['name' => $purchase->name]),
             );
         } catch (\Throwable $th) {
             $notifications = array(
-                'error' => "Opps!! Something got wrong, Please check and try again",
+                'error' => __('app.messages.generic_error'),
             );
         }
         return redirect()->route('purchases')->with($notifications);
@@ -131,7 +131,7 @@ class PurchaseController extends Controller
         $purchase = Purchase::find($request->id);
         $purchase->delete();
         $notification = array(
-            'message' => "Purchase has been deleted",
+            'message' => __('app.messages.purchase_deleted'),
             'alert-type' => 'success'
         );
         return back()->with($notification);

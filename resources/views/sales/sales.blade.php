@@ -12,15 +12,15 @@
             <div class="row align-items-center">
                 <div class="col-md-9 col-auto">
                     <div class="page-header-title">
-                        <h3 class="m-b-10">Add Sales</h3>
+                        <h3 class="m-b-10">{{ __('app.sales.title') }}</h3>
                     </div>
                 </div>
                 <div class="col-sm-3 col">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                                Dashboard</a>
+                                {{ __('app.common.dashboard') }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Add Sales</li>
+                        <li class="breadcrumb-item active">{{ __('app.sales.title') }}</li>
                     </ul>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <!-- Recent Sales -->
             <div class="card">
                 <div class="card-header">
-                    <h5>Added Sales</h5>
+                    <h5>{{ __('app.sales.added') }}</h5>
                     <div class="card-header-right">
                         <div class="btn-group card-option">
                             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
@@ -40,19 +40,15 @@
                                 <i class="feather icon-more-horizontal"></i>
                             </button>
                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item full-card"><a href="#!"><span><i
-                                                class="feather icon-maximize"></i>
-                                            maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                            Restore</span></a>
+                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                            {{ __('app.card.maximize') }}</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                            {{ __('app.card.restore') }}</span></a>
                                 </li>
-                                <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                                class="feather icon-minus"></i> collapse</span><span style="display:none"><i
-                                                class="feather icon-plus"></i> expand</span></a></li>
-                                <li class="dropdown-item reload-card"><a href="#!"><i
-                                            class="feather icon-refresh-cw"></i>
-                                        reload</a></li>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> {{ __('app.card.collapse') }}</span><span style="display:none"><i class="feather icon-plus"></i> {{ __('app.card.expand') }}</span></a></li>
+                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                        {{ __('app.card.reload') }}</a></li>
                                 <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
-                                        remove</a></li>
+                                        {{ __('app.card.remove') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,12 +58,12 @@
                         <table id="datatable-export" class="table table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Medicine Name</th>
-                                    <th>Quantity</th>
-                                    <th>Unit Price</th>
-                                    <th>Total Price</th>
-                                    <th>Date</th>
-                                    <th class="action-btn">Action</th>
+                                    <th>{{ __('app.products.name') }}</th>
+                                    <th>{{ __('app.common.quantity') }}</th>
+                                    <th>{{ __('app.common.unit_price') }}</th>
+                                    <th>{{ __('app.common.total_price') }}</th>
+                                    <th>{{ __('app.common.date') }}</th>
+                                    <th class="action-btn">{{ __('app.common.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,16 +83,16 @@
                                                                 data-product="{{ $sale->product_id }}"
                                                                 data-quantity="{{ $sale->quantity }}"
                                                                 class="btn btn-sm btn-info editbtn" href="javascript:void(0);">
-                                                                <i class="fe fe-pencil"></i> Edit
+                                                                <i class="fe fe-pencil"></i> {{ __('app.common.edit') }}
                                                             </a>
                                                         @else
-                                                            <label class="badge badge-danger"> Out of Stock</label>
+                                                            <label class="badge badge-danger"> {{ __('app.sales.out_of_stock') }}</label>
                                                         @endif
                                                     @endcan
                                                     @can('destroy-sales')
                                                         <a data-id="{{ $sale->id }}" href="javascript:void(0);"
                                                             class="btn btn-sm btn-danger deletebtn" data-toggle="modal">
-                                                            <i class="fe fe-trash"></i> Delete
+                                                            <i class="fe fe-trash"></i> {{ __('app.common.delete') }}
                                                         </a>
                                                     @endcan
                                                 </div>
@@ -116,9 +112,9 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Sale</h5>
+                        <h5>{{ __('app.sales.add_one') }}</h5>
                         <div class="card-header-right">
-                            <a href="#" id="add_new" class="btn btn-primary float-right ">Add New</a>
+                            <a href="#" id="add_new" class="btn btn-primary float-right ">{{ __('app.common.add_new') }}</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -129,7 +125,7 @@
         @endcan
     </div>
     <!-- Delete Modal -->
-    <x-modals.delete :route="'sales'" :title="'Product Sale'" />
+    <x-modals.delete :route="'sales'" :title="__('app.entity.product_sale')" />
     <!-- /Delete Modal -->
 @endsection
 
@@ -149,7 +145,7 @@
                 $(".edit_product").val(product).trigger('change');
                 console.log(product)
                 $('.edit_quantity').val(quantity);
-                $('.btn-block').text("Update Changes");
+                $('.btn-block').text(@json(__('app.common.update_changes')));
 
             });
 
@@ -158,7 +154,7 @@
                 $('#edit_id').val('');
                 $(".edit_product").val('').trigger('change');
                 $('.edit_quantity').val(1);
-                $('.btn-block').text("Save Changes");
+                $('.btn-block').text(@json(__('app.common.save_changes')));
 
             });
         });

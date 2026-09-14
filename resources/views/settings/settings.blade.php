@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 @php
-	$title = "app Setting";
+	$title = __('app.settings.page_title');
 @endphp
 
 @section('content')
@@ -10,15 +10,15 @@
         <div class="row align-items-center">
             <div class="col-md-9 col-auto">
                 <div class="page-header-title">
-                    <h3 class="m-b-10">App General Settings</h3>
+                    <h3 class="m-b-10">{{ __('app.settings.title') }}</h3>
                 </div>
             </div>
             <div class="col-sm-3 col">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i>
-                            Dashboard</a>
+                            {{ __('app.common.dashboard') }}</a>
                     </li>
-                    <li class="breadcrumb-item active">General Settings</li>
+                    <li class="breadcrumb-item active">{{ __('app.settings.breadcrumb') }}</li>
                 </ul>
             </div>
         </div>
