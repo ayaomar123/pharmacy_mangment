@@ -17,6 +17,24 @@ $app = new Illuminate\Foundation\Application(
 
 /*
 |--------------------------------------------------------------------------
+| Locate The Public Directory
+|--------------------------------------------------------------------------
+|
+| Laravel assumes the public directory sits inside the base path. Shared
+| hosting serves a fixed web root instead (htdocs), so there the contents of
+| public/ live in that root and the framework sits in a folder beside them.
+| Point path.public at whichever of the two layouts is actually on disk, so
+| public_path() keeps resolving to the directory the web server serves - it is
+| where uploads are written and read back from.
+|
+*/
+
+$app->instance('path.public', is_dir($public = dirname(__DIR__).'/public')
+    ? $public
+    : dirname(__DIR__, 2));
+
+/*
+|--------------------------------------------------------------------------
 | Bind Important Interfaces
 |--------------------------------------------------------------------------
 |
