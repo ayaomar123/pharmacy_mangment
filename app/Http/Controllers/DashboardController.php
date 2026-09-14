@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Sales;
-use App\Models\Setting;
 use App\Models\Category;
 use App\Models\Purchase;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
-use App\Notifications\StockAlert;
-use App\Events\ProductReachedLowStock;
 
 class DashboardController extends Controller
 {
@@ -22,10 +19,9 @@ class DashboardController extends Controller
         $available_medicines = Purchase::where('quantity', '>' , 5)->count();
         $total_medicines_outStock = Purchase::where('quantity', 0)->count();
         $total_medicines_runningOutStock = Purchase::where('quantity', '<=', 5)->count();
-        $total_purchases = Purchase::where('expiry_date','=',Carbon::now())->count();
+        $total_purchases = Purchase::count();
 
         $total_categories = Category::count();
-        $total_suppliers = Supplier::count();
         $total_sales = Sales::count();
 
         $yesterday_sales = Sales::whereDate('created_at',  Carbon::now()->yesterday()->format('Y-m-d'))->sum('total_price');
@@ -49,7 +45,7 @@ class DashboardController extends Controller
 
             // dd($pieChart );
 
-        $total_expired_products = Purchase::whereDate('expiry_date', '=', Carbon::now())->count();
+        $total_expired_products = Purchase::whereDate('expiry_date', '<=', Carbon::today())->count();
         $latest_sales = Sales::whereDate('created_at','=',Carbon::now())->get();
         $today_sales = Sales::whereDate('created_at','=',Carbon::now())->sum('total_price');
         return view('home',compact(

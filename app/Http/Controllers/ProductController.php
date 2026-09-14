@@ -31,7 +31,7 @@ class ProductController extends Controller
 
     public function expired(){
         $title = "expired Products";
-        $products = Purchase::whereDate('expiry_date', '=', Carbon::now())->get();
+        $products = Purchase::whereDate('expiry_date', '<=', Carbon::today())->get();
 
         return view('products.expired',compact(
             'title','products'
@@ -42,7 +42,6 @@ class ProductController extends Controller
     public function outstock(){
         $title = "outstocked Products";
         $products = Purchase::where('quantity', '<=', 0)->get();
-        $product = Purchase::where('quantity', '<=', 0)->first();
 
         return view('products.outstock',compact(
             'title','products',
@@ -52,15 +51,12 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'product'=>'required|max:200',
-            'price'=>'required|min:1',
-            'discount'=>'nullable',
+            'product'=>'required|exists:purchases,id',
+            'price'=>'required|numeric|min:0',
+            'discount'=>'nullable|numeric|min:0|max:100',
             'description'=>'nullable|max:200',
         ]);
-        $price = $request->price;
-        if($request->discount >0){
-           $price = $request->discount * $request->price;
-        }
+        $price = $this->priceAfterDiscount($request->price, $request->discount);
        try {
             Product::create([
             'purchase_id'=>$request->product,
@@ -92,16 +88,13 @@ class ProductController extends Controller
     public function update(Request $request,Product $product)
     {
         $this->validate($request,[
-            'product'=>'required|max:200',
-            'price'=>'required',
-            'discount'=>'nullable',
+            'product'=>'required|exists:purchases,id',
+            'price'=>'required|numeric|min:0',
+            'discount'=>'nullable|numeric|min:0|max:100',
             'description'=>'nullable|max:200',
         ]);
 
-        $price = $request->price;
-        if($request->discount >0){
-           $price = $request->discount * $request->price;
-        }
+        $price = $this->priceAfterDiscount($request->price, $request->discount);
        try {
         $product->update([
             'purchase_id'=>$request->product,
@@ -118,6 +111,25 @@ class ProductController extends Controller
         );
        }
         return redirect()->route('products')->with($notification);
+    }
+
+    /**
+     * Apply the discount, given as a percentage, to the unit price.
+     *
+     * @param  float|int|string       $price
+     * @param  float|int|string|null  $discount  percentage between 0 and 100
+     * @return float
+     */
+    private function priceAfterDiscount($price, $discount)
+    {
+        $price = (float) $price;
+        $discount = (float) $discount;
+
+        if ($discount <= 0) {
+            return $price;
+        }
+
+        return round($price * (1 - ($discount / 100)), 2);
     }
 
     public function destroy(Request $request)
